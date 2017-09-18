@@ -7,7 +7,7 @@
     "node": "6.11.1"
   },
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --colors",
     "start": "webpack-dev-server --open --inline --hot",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
