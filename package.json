@@ -7,7 +7,7 @@
     "node": "6.11.1"
   },
   "scripts": {
-    "build": "NODE_ENV='production' webpack",
+    "build": "webpack",
     "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --open --inline --hot",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
