@@ -7,8 +7,8 @@
     "node": "6.11.1"
   },
   "scripts": {
-    "build": "webpack --colors",
-    "start": "webpack-dev-server --open --inline --hot",
+    "build": "webpack",
+    "start": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "babel": {
