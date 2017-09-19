@@ -1,11 +1,11 @@
 const webpack = require('webpack');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
-    publicPath: '/',
     filename: 'index_bundle.js'
   },
   resolve: {
@@ -26,6 +26,9 @@ module.exports = {
       }
     }),
     new webpack.optimize.UglifyJsPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
+    })
   ]
 };

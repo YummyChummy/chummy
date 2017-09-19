@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server -d --config webpack.dev.config.js --progress --colors",
-    "prod": "NODE_ENV=production node ./src/index.js",
+    "prod": "NODE_ENV=production node server.js",
     "build": "webpack --config webpack.prod.config.js -p --progress --colors",
     "postinstall": "webpack --config webpack.prod.config.js -p --progress --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -31,6 +31,7 @@
   },
   "homepage": "https://github.com/YummyChummy/chummy#readme",
   "dependencies": {
+    "express": "^4.15.4",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
