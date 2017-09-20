@@ -14,8 +14,39 @@ jobs:
     steps:
       - checkout
       - run: echo "hello world!"
-deployment:
-  staging:
-    branch: master
-    heroku:
-      appname: yummy-chummy
+
+  deploy:
+    machine:
+        enabled: true
+    working_directory: ~/circleci-demo-workflows
+    environment:
+      - HEROKU_APP: yummy-chummy
+    steps:
+      - run:
+          name: Setup Heroku
+          command: bash .circleci/setup-heroku.sh
+      - add_ssh_keys:
+          fingerprints:
+            - "8a7c93af-c967-4ae6-addd-f65b94ac2293"
+      - run:
+          command: |
+            git push heroku fan-in-fan-out:master
+            heroku run rake db:migrate
+            sleep 5 # sleep for 5 seconds to wait for dynos
+            heroku restart
+      - deploy:
+        name: Deploy Master to Heroku
+        command: |
+          if [ "${CIRCLE_BRANCH}" == "master" ]; then
+            git push heroku master
+            heroku run python manage.py deploy
+            heroku restart
+          fi
+
+
+
+  deployment:
+    staging:
+      branch: master
+      heroku:
+        appname: yummy-chummy
