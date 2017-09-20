@@ -14,3 +14,8 @@ jobs:
     steps:
       - checkout
       - run: echo "hello world!"
+  deployment:
+    staging:
+      branch: master
+      heroku:
+        appname: Chummy
