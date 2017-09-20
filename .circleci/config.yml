@@ -34,7 +34,7 @@ jobs:
             heroku run rake db:migrate
             sleep 5 # sleep for 5 seconds to wait for dynos
             heroku restart
-      - deploy:
+      - deploy_to_heroku:
         name: Deploy Master to Heroku
         command: |
           if [ "${CIRCLE_BRANCH}" == "master" ]; then
@@ -42,14 +42,15 @@ jobs:
             heroku run python manage.py deploy
             heroku restart
           fi
+
 workflows:
   version: 2
   build_and_test:
     jobs:
       - build
-      - test:
+      - deploy:
           requires:
-            -build
+            - build
           filters:
             branches:
               only: master
