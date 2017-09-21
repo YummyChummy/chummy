@@ -24,11 +24,10 @@ jobs:
     environment:
       - HEROKU_APP: yummy-chummy
     steps:
+      - checkout
       - run:
           shell: /bin/sh
           command: |
-            echo "Git repo?"
-            ls -la
             git remote add heroku https://git.heroku.com/yummy-chummy.git
             wget https://cli-assets.heroku.com/branches/stable/heroku-linux-amd64.tar.gz
             sudo mkdir -p /usr/local/lib /usr/local/bin
