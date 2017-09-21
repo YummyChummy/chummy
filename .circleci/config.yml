@@ -18,7 +18,7 @@ jobs:
   deploy:
     machine:
         enabled: true
-    working_directory: ~/circleci-demo-workflows
+    working_directory: ~/chummy
     environment:
       - HEROKU_APP: yummy-chummy
     steps:
