@@ -24,7 +24,7 @@ jobs:
     steps:
       - run:
           name: Setup Heroku
-          command: bash ./.circleci/setup-heroku.sh
+          command: bash ~/chummy/.circleci/setup-heroku.sh
       - add_ssh_keys:
           fingerprints:
             - "8a7c93af-c967-4ae6-addd-f65b94ac2293"
