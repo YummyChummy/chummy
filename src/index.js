@@ -6,7 +6,7 @@ class Application extends React.Component {
   render () {
     return (
       <div>
-        Hello heroku!!! Again!!!!
+        Hello HEROKU!!! Again x 2!!!!
       </div>
     )
   }
