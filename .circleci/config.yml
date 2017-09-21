@@ -15,7 +15,7 @@ jobs:
       - checkout
       - run:
           command: npm install
-      - run: echo "hello world!"
+      - run: echo "Successful build!"
 
   deploy:
     machine:
@@ -26,6 +26,7 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Set up Heroku
           shell: /bin/sh
           command: |
             git remote add heroku https://git.heroku.com/yummy-chummy.git
@@ -41,7 +42,9 @@ jobs:
               login $HEROKU_LOGIN
               password $HEROKU_API_KEY
             -EOF
-      - run: ssh-keyscan -H heroku.com >> ~/.ssh/known_hosts
+      - run:
+          name: Add Heroku as host
+          command: ssh-keyscan -H heroku.com >> ~/.ssh/known_hosts
       - deploy:
           name: Deploy Master to Heroku
           command: |
