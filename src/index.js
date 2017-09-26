@@ -4,6 +4,6 @@ require('./index.css')
 var App = require('./components/App')
 
 ReactDOM.render(
-  <App />,
+  <App/>,
   document.getElementById('app')
 )
