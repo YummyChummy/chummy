@@ -4,6 +4,10 @@ var Logo = require('./Logo');
 var ItemDescription = require('./ItemDescription');
 
 class LivingStyleGuide extends React.Component {
+    componentDidMount () {
+        document.body.className="LivingStyleGuide";
+    }
+
     render(){
         return (
             <div>

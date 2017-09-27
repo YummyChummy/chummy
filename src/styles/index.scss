@@ -1,5 +1,9 @@
 @import './breakpoints';
 
+body {
+  background-color: #DDC9B4;
+}
+
 logo {
   font-family: 'Roboto', sans-serif;
   font-size: 2.6rem;
@@ -43,12 +47,7 @@ dt::after {
   content: " —";
 }
 
-body {
-  background-color: #DDC9B4;
-  font-size: 1rem;
-
-  //testing initial breakpoint
-  @include breakpoint-for($mobile) {
-    font-size: 2rem;
-  }
+.LivingStyleGuide {
+  background-color: white;
 }
+
