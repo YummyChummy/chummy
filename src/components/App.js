@@ -6,20 +6,19 @@ var Switch = ReactRouter.Switch;
 var Home = require('./Home');
 var LivingStyleGuide = require('./LivingStyleGuide');
 
-
 class App extends React.Component {
   render() {
     return (
       <Router>
-        <div>
+          <div>
           <Switch>
             <Route exact path="/" component={Home}/>
-            <Route exact path="/livingstyleguide" component={LivingStyleGuide}/>
+            <Route exact path="/living_style_guide" component={LivingStyleGuide}/>
             <Route render={function () {
               return <p>Not Found</p>
             }} />
           </Switch>
-        </div>
+          </div>
       </Router>
     )
   }

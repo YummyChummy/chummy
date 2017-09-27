@@ -6,8 +6,8 @@ class LivingStyleGuide extends React.Component {
     return (
       <div className="logo">
         <logo>
-          <span class="orange">chum</span>
-          <span class="green">my</span>
+          <span className="orange">chum</span>
+          <span className="green">my</span>
         </logo>
       </div>
     )
