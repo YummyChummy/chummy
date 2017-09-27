@@ -31,10 +31,10 @@
   },
   "homepage": "https://github.com/YummyChummy/chummy#readme",
   "dependencies": {
-    "express": "^4.15.4",
-    "prop-types": "^15.5.10",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "express": "^4.15.5",
+    "prop-types": "^15.6.0",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
     "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
@@ -47,6 +47,6 @@
     "html-webpack-plugin": "^2.30.1",
     "style-loader": "^0.18.2",
     "webpack": "^3.5.6",
-    "webpack-dev-server": "^2.8.1"
+    "webpack-dev-server": "^2.9.0"
   }
 }
