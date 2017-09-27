@@ -6,12 +6,41 @@ logo {
   font-weight: bold;
 }
 
+.heading-large {
+  font-family: 'Roboto', sans-serif;
+  line-height: 150%;
+  font-size: 2.6rem;
+  font-weight: bold;
+}
+
+.heading-small {
+  font-family: 'Roboto', sans-serif;
+  line-height: 150%;
+  font-size: 1.3rem;
+}
+
+.body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 150%;
+  font-size: 1.0rem;
+}
+
 .orange{
   color: #F26430
 }
 
 .green{
   color: #009B72
+}
+
+dt, dd {
+  display: inline;
+  white-space: normal;
+}
+
+
+dt::after {
+  content: " —";
 }
 
 body {
