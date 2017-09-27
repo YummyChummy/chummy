@@ -1,6 +1,12 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const extractSass = new ExtractTextPlugin({
+    filename: "[name].[contenthash].css",
+    disable: process.env.NODE_ENV === "development"
+});
 
 module.exports = {
   entry: './src/index.js',
@@ -15,7 +21,10 @@ module.exports = {
     loaders: [
       {test: /\.(js)/, use: 'babel-loader'},
       {test: /\.jsx?$/, exclude: '/node_modules/', loaders: 'babel-loader', query: {presets:[ 'es2015', 'react']}},
-      {test: /\.scss$/, loaders: "style-loader!css-loader"},
+      {test: /\.scss$/, use: extractSass.extract({
+          use: [ {loader: 'css-loader'}, {loader: 'sass-loader'}],
+          fallback: 'style-loader'
+      })},
       {test: /\.css$/, loader: "style-loader!css-loader"}
     ]
   },
@@ -28,7 +37,8 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
-      template: './src/index.html'
-    })
+        template: './src/index.html'
+    }),
+      extractSass
   ]
 };
