@@ -68,3 +68,38 @@ dt::after {
   background-color: white;
 }
 
+.day {
+  border-radius: 3px;
+  background-color: white;
+  -webkit-box-shadow: 2px 2px 10px grey;
+  -moz-box-shadow: 2px 2px 10px grey;
+  box-shadow: 2px 2px 10px grey ;
+
+  width: 20%;
+
+  @include breakpoint-for($mobile) {
+    width: 80%;
+  }
+
+  @include breakpoint-for($tablet) {
+    width: 35%;
+  }
+
+//- a day should be 1.4 times taller than it is wide
+  height: calc(1.4 * attr(width px));
+}
+
+.day .heading-small {
+  height: 64px;
+  font-weight: bold;
+  background-color: #009B72;
+}
+
+.day .body {
+  font-style: italic;
+  color: #77797D;
+}
+
+.intro, .days-container {
+  margin: 1.5em 1.0em;
+}
