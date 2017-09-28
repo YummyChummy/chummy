@@ -1,4 +1,17 @@
 @import './breakpoints';
+$taupe_color: #DDC9B4;
+
+.orange{
+  color: #F26430
+}
+
+.green{
+  color: #009B72
+}
+
+.taupe{
+  color: $taupe_color
+}
 
 .nav {
   display: flex;
@@ -9,8 +22,14 @@
 }
 
 body {
-  background-color: #DDC9B4;
+  background-color: $taupe_color;
   margin: 0 auto;
+}
+
+.bodyText {
+  font-family: 'Roboto', sans-serif;
+  line-height: 10%;
+  font-size: 1.0rem;
 }
 
 .container {
@@ -27,31 +46,17 @@ logo {
   padding: 1.0rem 0 1.0rem 1.0rem;
 }
 
-.heading-large {
+h1 {
   font-family: 'Roboto', sans-serif;
-  line-height: 150%;
+  line-height: 10%;
   font-size: 2.6rem;
   font-weight: bold;
 }
 
-.heading-small {
+h2 {
   font-family: 'Roboto', sans-serif;
-  line-height: 150%;
+  line-height: 10%;
   font-size: 1.3rem;
-}
-
-.body {
-  font-family: 'Roboto', sans-serif;
-  line-height: 150%;
-  font-size: 1.0rem;
-}
-
-.orange{
-  color: #F26430
-}
-
-.green{
-  color: #009B72
 }
 
 dt, dd {
