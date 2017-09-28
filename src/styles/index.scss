@@ -1,3 +1,4 @@
+@import './reset';
 @import './breakpoints';
 
 .nav {
@@ -10,7 +11,6 @@
 
 body {
   background-color: #DDC9B4;
-  margin: 0 auto;
 }
 
 .container {
