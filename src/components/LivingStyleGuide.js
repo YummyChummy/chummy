@@ -20,7 +20,7 @@ class LivingStyleGuide extends React.Component {
                         <br/>
                     </div>
                     <div>
-                        <h2>Typography</h2>
+                        <h2 style={{fontWeight: 'bold'}}>Typography</h2>
                         <br/>
 
                         <div>
@@ -50,8 +50,62 @@ class LivingStyleGuide extends React.Component {
 
                     </div>
                     <div>
-                        <h2>Colors</h2>
+                        <h2 style={{fontWeight: 'bold'}}>Colors</h2>
+                        <br/>
+                        <span className="bodyText">APP COLORS</span>
+                        <br/>
+                        <br/>
+
+                        <svg width="750" height="170">
+                            <g>
+                                <rect width="150" height="150" className="charcoal"/>
+                                <text x="40" y="135" className="bodyText" style={{fill:'white'}}>#2A2D34</text>
+                            </g>
+                            <g>
+                                <rect width="150" height="150" x="150" className="grey"/>
+                                <text x="190" y="135" className="bodyText" style={{fill:'white'}}>#77797D</text>
+                            </g>
+                            <g>
+                                <rect width="150" height="150" x="300" className="green"/>
+                                <text x="340" y="135" className="bodyText" style={{fill:'white'}}>#009B72</text>
+                            </g>
+                            <g>
+                                <rect width="150" height="150" x="450" className="orange"/>
+                                <text x="490" y="135" className="bodyText" style={{fill:'white'}}>#F26430</text>
+                            </g>
+                            <g>
+                                <rect width="150" height="150" x="600" className="taupe"/>
+                                <text x="640" y="135" className="bodyText">#DDC9B4</text>
+                            </g>
+                        </svg>
+                        <br/>
+
+                        <span className="bodyText">ALERT COLORS</span>
+                        <br/>
+                        <br/>
+
+                        <svg width="600" height="170">
+                            <g>
+                                <rect width="150" height="150" className="red"/>
+                                <text x="40" y="135" className="bodyText" style={{fill:'white'}}>#D0021B</text>
+                            </g>
+                            <g>
+                                <rect width="150" height="150" x="150" className="green"/>
+                                <text x="190" y="135" className="bodyText" style={{fill:'white'}}>#009B72</text>
+                            </g>
+                            <g>
+                                <rect width="150" height="150" x="300" className="yellow"/>
+                                <text x="340" y="135" className="bodyText">#F5BF23</text>
+                            </g>
+                            <g>
+                                <rect width="150" height="150" x="450" className="blue"/>
+                                <text x="490" y="135" className="bodyText" style={{fill:'white'}}>#4A90E2</text>
+                            </g>
+                        </svg>
                     </div>
+
+
+
                 </div>
             </div>
         )

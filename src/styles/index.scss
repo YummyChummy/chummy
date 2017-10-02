@@ -1,17 +1,54 @@
 @import './reset';
 @import './breakpoints';
+
+$charcoal_color: #2A2D34;
+$grey_color: #77797D;
 $taupe_color: #DDC9B4;
+$green_color: #009B72;
+$orange_color: #F26430;
+$red_color: #D0021B;
+$yellow_color: #F5BF23;
+$blue_color: #4A90E2;
 
-.orange{
-  color: #F26430
+
+.charcoal {
+  fill: $charcoal_color;
+  color: $charcoal_color;
 }
 
-.green{
-  color: #009B72
+.grey {
+  fill: $grey_color;
+  color: $grey_color;
 }
 
-.taupe{
-  color: $taupe_color
+.orange {
+  fill: $orange_color;
+  color: $orange_color;
+}
+
+.green {
+  fill: $green_color;
+  color: $green_color;
+}
+
+.taupe {
+  fill: $taupe_color;
+  color: $taupe_color;
+}
+
+.red {
+  fill: $red_color;
+  color: $red_color;
+}
+
+.yellow {
+  fill: $yellow_color;
+  color: $yellow_color;
+}
+
+.blue {
+  fill: $blue_color;
+  color: $blue_color;
 }
 
 .nav {
@@ -30,6 +67,7 @@ body {
   font-family: 'Roboto', sans-serif;
   line-height: 125%;
   font-size: 1.0rem;
+  fill: $charcoal_color;
 }
 
 .container {
