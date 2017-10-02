@@ -1,11 +1,9 @@
 var React = require('react');
-var Nav = require('./Nav');
 
 class Home extends React.Component {
   render(){
     return (
       <div>
-          <Nav />
           <div className="container">
               <div className="heading-large">
                   Make meal planning fun!

@@ -1,3 +1,4 @@
+@import './reset';
 @import './breakpoints';
 $taupe_color: #DDC9B4;
 
@@ -23,12 +24,11 @@ $taupe_color: #DDC9B4;
 
 body {
   background-color: $taupe_color;
-  margin: 0 auto;
 }
 
 .bodyText {
   font-family: 'Roboto', sans-serif;
-  line-height: 10%;
+  line-height: 125%;
   font-size: 1.0rem;
 }
 
@@ -48,14 +48,14 @@ logo {
 
 h1 {
   font-family: 'Roboto', sans-serif;
-  line-height: 10%;
+  line-height: 150%;
   font-size: 2.6rem;
   font-weight: bold;
 }
 
 h2 {
   font-family: 'Roboto', sans-serif;
-  line-height: 10%;
+  line-height: 150%;
   font-size: 1.3rem;
 }
 
@@ -72,4 +72,3 @@ dt::after {
 .LivingStyleGuide {
   background-color: white;
 }
-
