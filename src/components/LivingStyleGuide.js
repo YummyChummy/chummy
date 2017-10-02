@@ -52,7 +52,7 @@ class LivingStyleGuide extends React.Component {
                     <div>
                         <h2 style={{fontWeight: 'bold'}}>Colors</h2>
                         <br/>
-                        <span className="bodyText">APP COLORS</span>
+                        <span className="bodyText" style={{fontWeight: 'bold'}}>APP COLORS</span>
                         <br/>
                         <br/>
 
@@ -80,7 +80,7 @@ class LivingStyleGuide extends React.Component {
                         </svg>
                         <br/>
 
-                        <span className="bodyText">ALERT COLORS</span>
+                        <span className="bodyText" style={{fontWeight: 'bold'}}>ALERT COLORS</span>
                         <br/>
                         <br/>
 
@@ -102,6 +102,8 @@ class LivingStyleGuide extends React.Component {
                                 <text x="490" y="135" className="bodyText" style={{fill:'white'}}>#4A90E2</text>
                             </g>
                         </svg>
+                        <br/>
+                        <br/>
                     </div>
 
 
