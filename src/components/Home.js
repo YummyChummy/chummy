@@ -7,12 +7,12 @@ class Home extends React.Component {
       <div>
           <div className="container">
               <div className="intro">
-                  <div className="heading-large">
+                  <h1>
                       Make meal planning fun!
-                  </div>
-                  <div className="heading-small">
+                  </h1>
+                  <h2>
                       Start by adding a recipe in the top right. Assign those recipes to days and export into a grocery list.
-                  </div>
+                  </h2>
               </div>
               <div className="days-container">
                 <Day />

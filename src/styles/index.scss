@@ -122,15 +122,13 @@ h2 {
   height: calc(1.4 * attr(width px));
 }
 
-.day .heading-small {
-  height: 64px;
-  font-weight: bold;
-  background-color: #009B72;
+.day .green-background {
+  background-color: $green_color;
 }
 
 .day .body {
   font-style: italic;
-  color: #77797D;
+  color: $grey_color;
 }
 
 .intro, .days-container {
