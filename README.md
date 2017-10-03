@@ -1,7 +1,7 @@
 ### Setting up
 
 #### Using GitHub App
-1) Install [GitHub App](https://desktop.github.com/)
+Install [GitHub App](https://desktop.github.com/)
 
 *Open or download > Open in Desktop*
 
