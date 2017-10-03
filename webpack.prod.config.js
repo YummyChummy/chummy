@@ -12,7 +12,8 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'index_bundle.js'
+    filename: 'index_bundle.js',
+    publicPath: '/'
   },
   resolve: {
     extensions: ['.js', '.jsx', '.css', '.json']
