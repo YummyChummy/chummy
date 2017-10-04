@@ -12,7 +12,7 @@
   machine git.heroku.com
     login $HEROKU_LOGIN_2
     password $HEROKU_API_KEY_2
-  -EOF
+EOF
 
   # Add heroku.com to the list of known hosts
   ssh-keyscan -H heroku.com >> ~/.ssh/known_hosts
