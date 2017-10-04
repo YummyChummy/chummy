@@ -6,6 +6,12 @@ function Nav () {
     return (
         <div className="nav">
             <Logo />
+                <nav>
+                    <li>
+                        <Link to='/living_style_guide'>Style Guide</Link>
+                    </li>
+                </nav>
+
         </div>
     )
 }
