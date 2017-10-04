@@ -3,7 +3,7 @@
 #### Using GitHub App
 Install [GitHub App](https://desktop.github.com/)
 
-*Open or download > Open in Desktop*
+*Clone or download > Open in Desktop*
 
 #### Using Git
 ```sh
