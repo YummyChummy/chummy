@@ -12,7 +12,8 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'index_bundle.js'
+    filename: 'index_bundle.js',
+    publicPath: '/'
   },
   resolve: {
     extensions: ['.js', '.jsx', '.css', '.json']
@@ -28,6 +29,9 @@ module.exports = {
       {test: /\.css$/, loader: "style-loader!css-loader"}
     ]
   },
+    devServer: {
+        historyApiFallback: true
+    },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
