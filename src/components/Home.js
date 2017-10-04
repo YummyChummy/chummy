@@ -17,9 +17,6 @@ class Home extends React.Component {
               <div className="days-container">
                 <Day />
               </div>
-              <div style={{position: 'absolute', bottom: '5px'}}>
-                  { new Date().toTimeString() }
-              </div>
           </div>
       </div>
     )
