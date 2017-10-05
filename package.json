@@ -7,11 +7,10 @@
     "node": "6.11.1"
   },
   "scripts": {
-    "start": "webpack-dev-server -d --config webpack.dev.config.js --progress --colors",
-    "build": "webpack --config webpack.prod.config.js -p --progress --colors",
-    "prod": " webpack-dev-server -p --config webpack.prod.config.js --progress --colors",
-    "server": "npm run build && node server.js",
-    "postinstall": "npm run server",
+    "start": "webpack-dev-server -d --progress",
+    "build": "webpack -p --progress",
+    "prod": "npm run build && NODE_ENV=production node server.js",
+    "postinstall": "npm run prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "babel": {
