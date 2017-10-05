@@ -1,9 +1,8 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const devConfig = require('./webpack.dev.config');
 const prodConfig = require('./webpack.prod.config');
-const port = process.env.NODE_ENV === 'production' ? prodConfig.devServer.port : devConfig.devServer.port;
+const port = process.env.PORT || prodConfig.devServer.port;
 
 
 app.use(express.static(path.join(__dirname, 'build')));
