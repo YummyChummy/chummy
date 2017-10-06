@@ -3,7 +3,7 @@ var Day = require('./Day');
 
 function RecipeButton(props){
     return(
-        <div className="recipe-button">Add a recipe</div>
+        <button className="recipe-button">Add a recipe</button>
     )
 }
 
