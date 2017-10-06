@@ -3,9 +3,13 @@ import React, { Component } from 'react'
 class RecipeForm extends Component{
     render(){
         return(
-            <div>
-                {console.log('asdfasdfjasdfasdf')}
-                <button onSubmit={this.props.handleClick}>please press mee</button>
+            <div className="day" hidden={this.props.isHidden}>
+                <h2 className="green-background">
+                    Add a Recipe
+                </h2>
+                <div className="body">
+                    No recipes added yet.
+                </div>
             </div>
         )
     }
@@ -29,7 +33,11 @@ export default class RecipeButton extends Component{
     }
     render(){
         return(
-            <button className="recipe-button" onClick={this.handleClick} disabled={!this.state.enabled}>Add a recipe</button>
+            <div>
+                <button className="recipe-button" onClick={this.handleClick} disabled={!this.state.enabled}>Add a recipe</button>
+                <RecipeForm isHidden={this.state.enabled}/>
+            </div>
+
         )
     }
 }
