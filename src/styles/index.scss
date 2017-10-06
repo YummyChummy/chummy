@@ -71,7 +71,7 @@ body {
 }
 
 .container {
-  margin: 10%;
+  margin: 6% 8% 8% 8%;
 }
 
 logo {
@@ -133,4 +133,14 @@ h2 {
 
 .intro, .days-container {
   margin: 1.5em 1.0em;
+}
+
+.recipe-button{
+  margin: 1% 0 1% 0;
+  padding: 10px;
+  text-align: center;
+  background-color: hsl(0, 0%, 80%);
+  color: white;
+  border-radius: 4px;
+  width: 18%;
 }

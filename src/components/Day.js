@@ -1,15 +1,21 @@
-var React = require('react');
+import React, { Component } from 'react'
 
-class Day extends React.Component {
+function NoRecipes (props) {
+    return(
+        <div className="body">
+            No recipes added yet.
+        </div>
+    )
+}
+
+class Day extends Component {
     render() {
         return (
             <div className="day">
                 <h2 className="green-background">
-                    Day 1
+                    {this.props.header}
                 </h2>
-                <div className="body">
-                    No recipes added yet.
-                </div>
+                 <NoRecipes/>
             </div>
         )
     }

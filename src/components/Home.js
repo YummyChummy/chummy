@@ -1,6 +1,12 @@
 var React = require('react');
 var Day = require('./Day');
 
+function RecipeButton(props){
+    return(
+        <div className="recipe-button">Add a recipe</div>
+    )
+}
+
 class Home extends React.Component {
   render(){
     return (
@@ -15,7 +21,8 @@ class Home extends React.Component {
                   </h2>
               </div>
               <div className="days-container">
-                <Day />
+                  <RecipeButton />
+                  <Day header="Day 1"/>
               </div>
           </div>
       </div>
