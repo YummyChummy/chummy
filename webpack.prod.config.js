@@ -30,6 +30,7 @@ module.exports = {
     ]
   },
     devServer: {
+        port: 8080,
         stats:{
             colors: true
         },
