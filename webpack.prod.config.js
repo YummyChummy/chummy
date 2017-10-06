@@ -21,7 +21,7 @@ module.exports = {
   module: {
     loaders: [
       {test: /\.(js)/, use: 'babel-loader'},
-      {test: /\.jsx?$/, exclude: '/node_modules/', loaders: 'babel-loader', query: {presets:[ 'es2015', 'react']}},
+      {test: /\.jsx?$/, exclude: '/node_modules/', loaders: 'babel-loader', query: {presets:[ 'es2015', 'react'], plugins:['transform-class-properties']}},
       {test: /\.scss$/, use: extractSass.extract({
           use: [ {loader: 'css-loader'}, {loader: 'sass-loader'}],
           fallback: 'style-loader'

@@ -141,7 +141,7 @@ h2 {
   margin: 1% 0 1% 0;
   padding: 10px;
   text-align: center;
-  background-color: darkgray;
+  background-color: rgb(214,214,216);
   color: white;
   border-radius: 4px;
   width: 18%;
@@ -150,11 +150,11 @@ h2 {
   font-size: medium;
 }
 
-.recipe-button :hover{
-  background-color: #d0021b;
-  text-decoration: none;
+.recipe-button:active{
+  transform: translateY(3px);
 }
 
-.recipe-button:active{
-  transform: translateY(2px);
-}
+//.recipe-button:disabled{
+//  background-color: darkgray;
+//}
+

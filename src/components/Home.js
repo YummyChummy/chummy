@@ -1,11 +1,6 @@
 var React = require('react');
 var Day = require('./Day');
-
-function RecipeButton(props){
-    return(
-        <button className="recipe-button">Add a recipe</button>
-    )
-}
+import RecipeButton from './RecipeButton'
 
 class Home extends React.Component {
   render(){
