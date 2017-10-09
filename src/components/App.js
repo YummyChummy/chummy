@@ -7,6 +7,15 @@ var Home = require('./Home');
 var LivingStyleGuide = require('./LivingStyleGuide');
 var Nav = require('./Nav');
 
+function FooterDay(props) {
+    return(
+        <div className="green-background">
+            {props.title}
+        </div>
+    )
+
+}
+
 class App extends React.Component {
   render() {
     return (
@@ -20,6 +29,10 @@ class App extends React.Component {
                   return <p>Not Found</p>
                 }} />
               </Switch>
+
+              <footer className="footer">
+                  <FooterDay title="Day 1"/>
+              </footer>
           </div>
       </Router>
     )

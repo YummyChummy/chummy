@@ -3,23 +3,18 @@ import React, { Component } from 'react'
 function NoRecipes (props) {
     return(
         <div className="body">
-            No recipes added yet.
+            <div className="bodyText">
+                No recipes added yet.
+            </div>
         </div>
     )
 }
 
 class Day extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            isHidden: false
-        }
-    }
 
     render() {
-
         return (
-            <div className="day">
+            <div className="day" hidden={this.props.isHidden}>
                 <h2 className="green-background">
                     {this.props.header}
                 </h2>

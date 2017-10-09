@@ -103,9 +103,6 @@ h2 {
 
 .day {
   margin-bottom: 10%;
-  background-color: white;
-  box-shadow: 2px 2px 10px grey ;
-  border-radius: 4px;
   width: 30%;
   @include breakpoint-for($mobile) {
     width: 100%;
@@ -116,20 +113,23 @@ h2 {
   }
 
 //- a day should be 1.4 times taller than it is wide
-  height: 60vh;
 }
 
-.day .green-background {
+.green-background {
   padding: 5% 10% 5% 10%;
   border-radius: 4px 4px 0 0;
   color: white;
   background-color: $green_color;
 }
 
-.day .body {
+.body {
+  box-shadow: 2px 2px 10px grey ;
+  border-radius: 4px;
   font-style: italic;
   color: $grey_color;
-  margin: 10%;
+  background-color: white;
+  height: 60vh;
+  padding:10%;
 }
 
 .intro, .days-container {
@@ -165,5 +165,13 @@ h2 {
 
 .recipe-button:disabled{
   background-color: rgb(214,214,216);
+}
+
+.footer {
+  display: flex;
+  width: 40%;
+  margin-left: 10%;
+  text-align: center;
+  height: 1vh;
 }
 
