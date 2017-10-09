@@ -31,11 +31,17 @@ export default class RecipeButton extends Component{
             }
         })
     }
+
+    handleCallBacks = () => {
+        this.handleClick();
+        this.props.handleNewRecipe();
+    }
+
     render(){
         return(
             <div>
-                <button className="recipe-button" onClick={this.handleClick} disabled={!this.state.enabled}>Add a recipe</button>
-                <RecipeForm isHidden={this.state.enabled}/>
+                <button className="recipe-button" onClick={this.handleCallBacks}>Add a recipe</button>
+                <RecipeForm isHidden={this.state.enabled} handleNewRecipe={this.props.handleNewRecipe}/>
             </div>
 
         )

@@ -3,6 +3,23 @@ var Day = require('./Day');
 import RecipeButton from './RecipeButton'
 
 class Home extends React.Component {
+  constructor(props){
+      super(props)
+      this.state = {
+          isHidden: false
+      }
+  }
+
+  handleNewRecipe = () => {
+      this.setState(function () {
+          console.log("New Recipe Form Requested!")
+          return {
+              isHidden: !this.state.isHidden
+          }
+      })
+
+  }
+
   render(){
     return (
       <div>
@@ -16,8 +33,8 @@ class Home extends React.Component {
                   </h2>
               </div>
               <div className="days-container">
-                  <RecipeButton />
-                  <Day header="Day 1"/>
+                  <RecipeButton handleNewRecipe={this.handleNewRecipe}/>
+                  <Day header="Day 1" isHidden={this.state.isHidden}/>
               </div>
           </div>
       </div>
