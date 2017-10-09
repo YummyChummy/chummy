@@ -17,20 +17,9 @@ class Day extends Component {
     }
 
     render() {
-        var ops = {}
-        ops['hidden'] = this.props.isHidden
-
-        if (this.props.isHidden){
-            ops['style'] = {
-                    position: 'absolute',
-                    bottom: '0',
-                    height: '40px',
-                    marginTop: '40px',
-                }
-        }
 
         return (
-            <div className="day" {...ops}>
+            <div className="day">
                 <h2 className="green-background">
                     {this.props.header}
                 </h2>
