@@ -18,23 +18,20 @@ const initialState = {
 
 //reducer
 export default function chummyReducer(state = initialState, action){
-    let retState = null
-
     switch (action.type){
         case RECIPE_FORM_CHANGED:
-            retState = (action.isOpen)
-                ? Object.assign({},state,{
+            return (action.isOpen)
+                ? Object.assign({}, state, {
                     recipeButtonEnabled: false,
                     recipeFormVisible: true
                 })
-                : Object.assign({}, state, {
+                : Object.assign({}, state,  {
                     recipeButtonEnabled: true,
                     recipeFormVisible: false
                 })
 
         default:
-            retState = state;
+            return state
     }
 
-    return retState
 }

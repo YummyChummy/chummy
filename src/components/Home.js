@@ -17,6 +17,7 @@ class Home extends React.Component {
     handleNewRecipe = () => {
         this.setState(function () {
             console.log("New Recipe Form Requested!")
+            this.props.recipeFormChanged(true)
             return {
                 isHidden: !this.state.isHidden
             }
@@ -25,6 +26,7 @@ class Home extends React.Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <div>
                 <div className="container">
