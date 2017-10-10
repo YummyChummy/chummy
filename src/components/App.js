@@ -3,9 +3,10 @@ var ReactRouter = require('react-router-dom');
 var Router = ReactRouter.BrowserRouter;
 var Route = ReactRouter.Route;
 var Switch = ReactRouter.Switch;
-var Home = require('./Home');
 var LivingStyleGuide = require('./LivingStyleGuide');
 var Nav = require('./Nav');
+import {connect} from "react-redux"
+import Home from './Home'
 
 function FooterDay(props) {
     return(
@@ -39,4 +40,4 @@ class App extends React.Component {
   }
 }
 
-module.exports = App;
+export default connect()(App);
