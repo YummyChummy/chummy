@@ -5,12 +5,14 @@ var Route = ReactRouter.Route;
 var Switch = ReactRouter.Switch;
 var LivingStyleGuide = require('./LivingStyleGuide');
 var Nav = require('./Nav');
-import {connect} from "react-redux"
 import Home from './Home'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import * as chummyActionCreaters from "../redux/modules/chummy"
 
 function FooterDay(props) {
     return(
-        <div className="green-background">
+        <div className="green-background" hidden={props.isHidden}>
             {props.title}
         </div>
     )
@@ -31,13 +33,21 @@ class App extends React.Component {
                 }} />
               </Switch>
 
-              <footer className="footer">
-                  <FooterDay title="Day 1"/>
-              </footer>
+              <div className="footer">
+                  <FooterDay title="Day 1" isHidden={this.props.recipeButtonEnabled}/>
+              </div>
           </div>
       </Router>
     )
   }
 }
 
-export default connect()(App);
+function mapStateToProps({recipeButtonEnabled}) {
+    return { recipeButtonEnabled}
+}
+
+function mapDispatchToProps (dispatch) {
+    return bindActionCreators(chummyActionCreaters, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

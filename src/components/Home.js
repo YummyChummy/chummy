@@ -9,20 +9,6 @@ import * as chummyActionCreaters from "../redux/modules/chummy"
 class Home extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            isHidden: false
-        }
-    }
-
-    handleNewRecipe = () => {
-        this.setState(function () {
-            console.log("New Recipe Form Requested!")
-            this.props.recipeFormChanged(true)
-            return {
-                isHidden: !this.state.isHidden
-            }
-        })
-
     }
 
     render() {
@@ -41,8 +27,8 @@ class Home extends React.Component {
                         </h2>
                     </div>
                     <div className="days-container">
-                        <RecipeButton handleNewRecipe={this.handleNewRecipe}/>
-                        <Day header="Day 1" isHidden={this.state.isHidden}/>
+                        <RecipeButton />
+                        <Day header="Day 1" isHidden={this.props.recipeFormVisible}/>
                     </div>
                 </div>
             </div>

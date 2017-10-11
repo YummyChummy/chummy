@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import * as chummyActionCreaters from "../redux/modules/chummy"
 
 class RecipeForm extends Component{
     render(){
@@ -15,7 +18,7 @@ class RecipeForm extends Component{
     }
 }
 
-export default class RecipeButton extends Component{
+class RecipeButton extends Component{
     constructor(props){
         super(props)
         this.state = {
@@ -24,26 +27,27 @@ export default class RecipeButton extends Component{
     }
 
     handleClick = () => {
-        this.setState(function () {
-            console.log(`Button is clicked: ${this.state.enabled}`)
-            return {
-                enabled: !this.state.enabled
-            }
-        })
-    }
-
-    handleCallBacks = () => {
-        this.handleClick();
-        this.props.handleNewRecipe();
+        this.props.recipeFormChanged(true)
     }
 
     render(){
         return(
             <div>
-                <button className="recipe-button" onClick={this.handleCallBacks} disabled={!this.state.enabled}>Add a recipe</button>
-                <RecipeForm isHidden={this.state.enabled} handleNewRecipe={this.props.handleNewRecipe}/>
+                <button className="recipe-button" onClick={this.handleClick} disabled={!this.props.recipeButtonEnabled}>Add a recipe</button>
+                <RecipeForm isHidden={!this.props.recipeFormVisible}/>
             </div>
 
         )
     }
 }
+
+
+function mapStateToProps({recipeFormChanged, recipeButtonEnabled, recipeFormVisible}) {
+    return { recipeFormChanged, recipeButtonEnabled, recipeFormVisible }
+}
+
+function mapDispatchToProps (dispatch) {
+    return bindActionCreators(chummyActionCreaters, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeButton);

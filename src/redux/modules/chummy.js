@@ -15,7 +15,6 @@ const initialState = {
     recipeFormVisible:false
 }
 
-
 //reducer
 export default function chummyReducer(state = initialState, action){
     switch (action.type){
