@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 function NoRecipes (props) {
     return(
         <div className="body">
-            <div className="bodyText">
+            <div className="bodyTextCard">
                 No recipes added yet.
             </div>
         </div>
