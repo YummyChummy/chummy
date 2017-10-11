@@ -1,6 +1,6 @@
 var React = require('react');
 var Day = require('./Day');
-import RecipeButton from './RecipeButton'
+import RecipeCreator from './RecipeCreator'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import * as chummyActionCreaters from "../redux/modules/chummy"
@@ -27,7 +27,7 @@ class Home extends React.Component {
                         </h2>
                     </div>
                     <div className="days-container">
-                        <RecipeButton />
+                        <RecipeCreator />
                         <Day header="Day 1" isHidden={this.props.recipeFormVisible}/>
                     </div>
                 </div>
