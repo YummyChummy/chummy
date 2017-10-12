@@ -23,9 +23,23 @@ class RecipeForm extends Component{
     }
 
     handleNewIngredient = () =>{
-        // this.setState(function () {
-        //     //Add a new ingredient to the ingredients array
-        // })
+        this.setState(function () {
+            //Add a new ingredient to the ingredients array
+            return {
+                ingredients: this.state.ingredients.concat({})
+            }
+        })
+    }
+
+    generateIngredientsView = () =>{
+        var ingredientViews = []
+        var id = 0;
+        this.state.ingredients.map((anIngredient) =>
+        {
+            ingredientViews.push(<IngredientView key={id}/>);
+            id++;
+        })
+        return ingredientViews;
     }
 
     render(){
@@ -41,17 +55,17 @@ class RecipeForm extends Component{
                             <label style={{display: 'block'}} htmlFor="recipeName">Recipe Name</label>
                             <input id='recipeName' type="text" placeholder="Enter a catchy name for your recipe"/>
                             <IngredientsHeader />
-                            <IngredientView/>
-                            <IngredientView/>
-                            <IngredientView/>
-                            <IngredientView/>
+
+                            {this.generateIngredientsView()}
+
+
                              {/*for (anIngredient : this.state.ingredients*/}
                                 {/*if anIngredient === {}*/}
                                     {/*<IngredientView />*/}
                                 {/*else*/}
                                     {/*<IngredientView qty={anIngredient.qty} ingredient={anIngredient.ingredient} onChange={}/>*/}
 
-                            {/*<a href="" onClick={this.handleNewIngredient}>+ Add another Ingredient'</a>*/}
+                            {<a href="#" onClick={this.handleNewIngredient}>+ Add another Ingredient</a>}
 
                             <button className="recipe-button" onClick={this.submit}>Add Recipe</button>
                         </form>
@@ -94,10 +108,10 @@ function IngredientsHeader() {
 
 function IngredientView(props) {
     return (
-        <form style={{display: 'flex', marginBottom: '3%'}}>
-            <input id="quantity" type="text" placeholder="E.g.: 2 cups" style={{width: '25%', marginRight: '3%'}}/>
-            <input id="ingredient" type="text" placeholder="E.g.: Brown sugar" style={{width: '75%', display: 'block'}}/>
-        </form>
+        <div style={{display: 'flex', marginBottom: '3%'}}>
+            <input id="quantity" type="text" placeholder="E.g. 2 cups" style={{width: '25%', marginRight: '3%'}}/>
+            <input id="ingredient" type="text" placeholder="E.g. Brown sugar" style={{width: '75%', display: 'block'}}/>
+        </div>
     )
 }
 
