@@ -8,16 +8,21 @@ class RecipeForm extends Component{
     constructor(props){
         super(props);
         this.state = {
-            ingredients: [{},{},{}]
+            name: '',
+            ingredients: [{},{qty: 1, ingredient: 'something good'},{}]
         }
     }
 
     submit = () => {
-        //persist data
-        console.log("From Recipe Form: I am done here")
-        // this.setState(function () {
-        //     //updateState to contain ingredient values
-        // })
+        //persist data/send to postgress (eventually)
+        //echo it out
+        // clear by setState to empty
+        this.setState(function () {
+            return {
+                name: '',
+                ingredients: [{},{},{}]
+            }
+        });
 
         this.props.handleClose()
     }
@@ -36,14 +41,20 @@ class RecipeForm extends Component{
         var id = 0;
         this.state.ingredients.map((anIngredient) =>
         {
-            ingredientViews.push(<IngredientView key={id}/>);
+            console.log(anIngredient)
+            if (anIngredient === {})
+                ingredientViews.push(<IngredientView key={id} qty='' ingredient=''/>);
+            else{
+                ingredientViews.push(<IngredientView key={id} qty={anIngredient.qty} ingredient={anIngredient.ingredient}/>);
+            }
             id++;
         })
         return ingredientViews;
     }
 
     render(){
-        console.log("From RecipeForm: ", this.props)
+        console.log('NEW STATE: ', this.state)
+
         return(
             <div className="day" hidden={this.props.isHidden}>
                 <h2 className="green-background">
@@ -56,14 +67,7 @@ class RecipeForm extends Component{
                             <input id='recipeName' type="text" placeholder="Enter a catchy name for your recipe"/>
                             <IngredientsHeader />
 
-                            {this.generateIngredientsView()}
-
-
-                             {/*for (anIngredient : this.state.ingredients*/}
-                                {/*if anIngredient === {}*/}
-                                    {/*<IngredientView />*/}
-                                {/*else*/}
-                                    {/*<IngredientView qty={anIngredient.qty} ingredient={anIngredient.ingredient} onChange={}/>*/}
+                            <div>{this.generateIngredientsView()}</div>
 
                             {<a href="#" onClick={this.handleNewIngredient}>+ Add another Ingredient</a>}
 
@@ -107,14 +111,15 @@ function IngredientsHeader() {
 }
 
 function IngredientView(props) {
+    {/*onChange handler to update state*/}
+
     return (
         <div style={{display: 'flex', marginBottom: '3%'}}>
-            <input id="quantity" type="text" placeholder="E.g. 2 cups" style={{width: '25%', marginRight: '3%'}}/>
-            <input id="ingredient" type="text" placeholder="E.g. Brown sugar" style={{width: '75%', display: 'block'}}/>
+            <input id="quantity" type="text" placeholder="E.g. 2 cups" defaultValue={props.qty} style={{width: '25%', marginRight: '3%'}}/>
+            <input id="ingredient" type="text" placeholder="E.g. Brown sugar" defaultValue={props.ingredient} style={{width: '75%', display: 'block'}}/>
         </div>
     )
 }
-
 
 function mapStateToProps({recipeButtonEnabled, recipeFormVisible}) {
     return {recipeButtonEnabled, recipeFormVisible }
@@ -123,5 +128,4 @@ function mapStateToProps({recipeButtonEnabled, recipeFormVisible}) {
 function mapDispatchToProps (dispatch) {
     return bindActionCreators(chummyActionCreators, dispatch)
 }
-connect(mapStateToProps, mapDispatchToProps)(RecipeForm)
 export default connect(mapStateToProps, mapDispatchToProps)(RecipeCreator);
