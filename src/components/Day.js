@@ -14,7 +14,7 @@ class Day extends Component {
 
     render() {
         return (
-            <div className="day" hidden={this.props.isHidden}>
+            <div className="card-container" hidden={this.props.isHidden}>
                 <h2 className="green-background">
                     {this.props.header}
                 </h2>

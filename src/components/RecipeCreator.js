@@ -54,9 +54,9 @@ class RecipeForm extends Component{
 
     render(){
         console.log('NEW STATE: ', this.state)
-
+        var style = (this.props.isHidden) ? {display: "none"} : {};
         return(
-            <div className="day" hidden={this.props.isHidden}>
+            <div className="card-container" style={style}>
                 <h2 className="green-background">
                     Add a Recipe
                 </h2>
