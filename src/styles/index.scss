@@ -67,7 +67,7 @@ body {
   box-shadow: 2px 2px 10px grey ;
   border-radius: 4px;
   background-color: white;
-  height: 60vh;
+  height: 60%;
   padding:10%;
 }
 
@@ -116,8 +116,8 @@ h2 {
 }
 
 .day {
-  margin-bottom: 10%;
   width: 30%;
+  height: 50vh;
   @include breakpoint-for($mobile) {
     width: 100%;
   }
@@ -134,6 +134,7 @@ h2 {
   border-radius: 4px 4px 0 0;
   color: white;
   background-color: $green_color;
+  height: 10%;
 }
 
 .intro, .days-container {
