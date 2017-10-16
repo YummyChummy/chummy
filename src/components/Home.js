@@ -25,9 +25,12 @@ class Home extends React.Component {
                             grocery list.
                         </h2>
                     </div>
-                    <div className="days-container">
+                    <div className='recipe-creator'>
                         <RecipeCreator />
-                        <Day header="Day 1" isHidden={this.props.recipeFormVisible}/>
+                    </div>
+                    <div className="days-container">
+                        <Day header="Monday" isHidden={this.props.recipeFormVisible}/>
+                        <Day header="Tuesday" isHidden={this.props.recipeFormVisible}/>
                     </div>
                 </div>
             </div>

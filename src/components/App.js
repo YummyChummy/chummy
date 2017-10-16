@@ -10,15 +10,6 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import * as chummyActionCreaters from "../redux/modules/chummy"
 
-function FooterDay(props) {
-    return(
-        <div className="green-background" hidden={props.isHidden}>
-            {props.title}
-        </div>
-    )
-
-}
-
 class App extends React.Component {
   render() {
     return (
@@ -32,10 +23,6 @@ class App extends React.Component {
                   return <p>Not Found</p>
                 }} />
               </Switch>
-
-              <div className="footer">
-                  <FooterDay title="Day 1" isHidden={this.props.recipeButtonEnabled}/>
-              </div>
           </div>
       </Router>
     )
