@@ -1,5 +1,6 @@
-$mobile: '(max-width: 30rem)';
-$tablet: '(min-width: 30.06rem) and (max-width: 52.5rem)';
+$mobile: '(max-width: 37rem)';
+$tablet: '(min-width: 37.06rem) and (max-width: 52.5rem)';
+$large-tablet: '(min-width: 52.5rem) and (max-width: 80rem)';
 $desktop: '(min-width: 52.56rem)';
 
 @mixin breakpoint-for($media) {

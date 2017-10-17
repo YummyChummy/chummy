@@ -25,12 +25,15 @@ class Home extends React.Component {
                             grocery list.
                         </h2>
                     </div>
-                    <div className='recipe-creator'>
-                        <RecipeCreator />
-                    </div>
+                    <RecipeCreator />
                     <div className="days-container">
                         <Day header="Monday" isHidden={this.props.recipeFormVisible}/>
                         <Day header="Tuesday" isHidden={this.props.recipeFormVisible}/>
+                        <Day header="Wednesday" isHidden={this.props.recipeFormVisible}/>
+                        <Day header="Thursday" isHidden={this.props.recipeFormVisible}/>
+                        <Day header="Friday" isHidden={this.props.recipeFormVisible}/>
+                        <Day header="Saturday" isHidden={this.props.recipeFormVisible}/>
+                        <Day header="Sunday" isHidden={this.props.recipeFormVisible}/>
                     </div>
                 </div>
             </div>

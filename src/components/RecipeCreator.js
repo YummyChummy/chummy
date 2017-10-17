@@ -86,13 +86,13 @@ class RecipeForm extends Component{
     }
 
     render(){
-        var style = (this.props.isHidden) ? {display: "none"} : {};
+        var style = (this.props.isHidden) ? {display: "none"} : {display: "flex"};
         return(
-            <div className="card-container" style={style}>
-                <h2 className="green-background">
+            <div className="recipe-card" style={style}>
+                <h2 className="orange-header">
                     Add a Recipe
                 </h2>
-                <div className="body">
+                <div className="card-body">
                     <div className="bodyText">
                         <form>
                             <label style={{display: 'block'}} htmlFor="recipeName">Recipe Name</label>
@@ -103,7 +103,7 @@ class RecipeForm extends Component{
 
                             {<a href="#" onClick={this.handleNewIngredient}>+ Add another Ingredient</a>}
 
-                            <button className="recipe-button" onClick={this.submit}>Add Recipe</button>
+                            <button className="recipe-button" onClick={this.submit} style={{width: '50%'}}>Add Recipe</button>
                         </form>
                     </div>
                 </div>
@@ -124,7 +124,7 @@ class RecipeCreator extends Component{
 
     render(){
         return(
-            <div>
+            <div className='recipe-creator'>
                 <button className="recipe-button" onClick={this.handleOpenForm} disabled={!this.props.recipeButtonEnabled}>Add a recipe</button>
                 <RecipeForm isHidden={!this.props.recipeFormVisible} handleClose={this.handleCloseForm}/>
             </div>

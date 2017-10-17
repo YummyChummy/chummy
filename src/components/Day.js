@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 function NoRecipes (props) {
     return(
-        <div className="body">
+        <div className="card-body">
             <div className="bodyTextCard">
                 No recipes added yet.
             </div>
@@ -14,8 +14,8 @@ class Day extends Component {
 
     render() {
         return (
-            <div className="card-container" hidden={this.props.isHidden}>
-                <h2 className="green-background">
+            <div className="day-card" hidden={this.props.isHidden}>
+                <h2 className="green-header">
                     {this.props.header}
                 </h2>
                  <NoRecipes/>
