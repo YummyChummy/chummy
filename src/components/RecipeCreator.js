@@ -90,7 +90,7 @@ class RecipeForm extends Component{
         return(
             <div className="recipe-card" style={style}>
                 <h2 className="orange-header">
-                    Add a Recipe
+                    Create a Recipe
                 </h2>
                 <div className="card-body">
                     <div className="bodyText">
@@ -103,7 +103,7 @@ class RecipeForm extends Component{
 
                             {<a href="#" onClick={this.handleNewIngredient}>+ Add another Ingredient</a>}
 
-                            <button className="recipe-button" onClick={this.submit} style={{width: '50%'}}>Add Recipe</button>
+                            <button className="recipe-button" onClick={this.submit} style={{width: '50%'}}>Submit</button>
                         </form>
                     </div>
                 </div>
@@ -125,7 +125,7 @@ class RecipeCreator extends Component{
     render(){
         return(
             <div className='recipe-creator'>
-                <button className="recipe-button" onClick={this.handleOpenForm} disabled={!this.props.recipeButtonEnabled}>Add a recipe</button>
+                <button className="recipe-button" onClick={this.handleOpenForm} disabled={!this.props.recipeButtonEnabled}>Create a Recipe</button>
                 <RecipeForm isHidden={!this.props.recipeFormVisible} handleClose={this.handleCloseForm}/>
             </div>
 

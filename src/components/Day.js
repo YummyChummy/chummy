@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
 
-function NoRecipes (props) {
+function RecipesView (props) {
     return(
         <div className="card-body">
             <div className="bodyTextCard">
                 No recipes added yet.
+                <select style={{width: '100%'}} defaultValue={'none'}>
+                    <option value={'none'}>Please choose a recipe</option>
+                    <option value={'Potato Salad'}>Potato Salad</option>
+
+                </select>
             </div>
         </div>
     )
@@ -18,7 +23,7 @@ class Day extends Component {
                 <h2 className="green-header">
                     {this.props.header}
                 </h2>
-                 <NoRecipes/>
+                <RecipesView/>
             </div>
         )
     }
