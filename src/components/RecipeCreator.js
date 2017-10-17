@@ -17,13 +17,11 @@ class RecipeForm extends Component{
         //persist data/send to postgress (eventually)
         //echo it out
         // clear by setState to empty
-        this.setState(function () {
-            return {
-                name: '',
-                ingredients: [{},{},{}]
-            }
-        });
+        this.setState(() => ({
+          name: '',
+          ingredients: [{},{},{}]
 
+        }));
         this.props.handleClose()
     }
 
@@ -36,16 +34,51 @@ class RecipeForm extends Component{
         })
     }
 
+    handleInputChange = (key, name, e) => {
+      var ingredientsArray = this.state.ingredients;
+      if (key == 'qty') {
+        ingredientsArray[name].qty = e.target.value;
+      }
+      else{
+        ingredientsArray[name].ingredient = e.target.value;
+      }
+
+      this.setState(() => ({ingredients:ingredientsArray}))
+    }
+
+
+
     generateIngredientsView = () =>{
         var ingredientViews = []
         var id = 0;
         this.state.ingredients.map((anIngredient) =>
         {
-            console.log(anIngredient)
-            if (anIngredient === {})
-                ingredientViews.push(<IngredientView key={id} qty='' ingredient=''/>);
+          var index = id;
+            if (anIngredient === {}) {
+              ingredientViews.push(
+                <div key={id} name='test' style={{display: 'flex', marginBottom: '3%'}}>
+                    <input id="quantity" type="text"
+                           onChange={(e) => this.handleInputChange('qty', index, e)}
+                           placeholder="E.g. 2 cups"
+                           defaultValue={''} style={{width: '25%', marginRight: '3%'}}/>
+                    <input id="ingredient" type="text"
+                           onChange={(e) => this.handleInputChange('ingredient', index, e)}
+                           placeholder="E.g. Brown sugar"
+                           defaultValue={''} style={{width: '75%', display: 'block'}}/>
+                </div>);
+            }
             else{
-                ingredientViews.push(<IngredientView key={id} qty={anIngredient.qty} ingredient={anIngredient.ingredient}/>);
+            ingredientViews.push(
+            <div key={id} name ='test' style={{display: 'flex', marginBottom: '3%'}}>
+                <input id="quantity" type="text"
+                       onChange={(e) => this.handleInputChange('qty',index, e)}
+                       placeholder="E.g. 2 cups"
+                       defaultValue={anIngredient.qty} style={{width: '25%', marginRight: '3%'}}/>
+                <input id="ingredient" type="text"
+                       onChange={(e) => this.handleInputChange('ingredient',index, e)}
+                       placeholder="E.g. Brown sugar"
+                       defaultValue={anIngredient.ingredient} style={{width: '75%', display: 'block'}}/>
+            </div> );
             }
             id++;
         })
@@ -53,7 +86,6 @@ class RecipeForm extends Component{
     }
 
     render(){
-        console.log('NEW STATE: ', this.state)
         var style = (this.props.isHidden) ? {display: "none"} : {};
         return(
             <div className="card-container" style={style}>
@@ -110,16 +142,6 @@ function IngredientsHeader() {
     )
 }
 
-function IngredientView(props) {
-    {/*onChange handler to update state*/}
-
-    return (
-        <div style={{display: 'flex', marginBottom: '3%'}}>
-            <input id="quantity" type="text" placeholder="E.g. 2 cups" defaultValue={props.qty} style={{width: '25%', marginRight: '3%'}}/>
-            <input id="ingredient" type="text" placeholder="E.g. Brown sugar" defaultValue={props.ingredient} style={{width: '75%', display: 'block'}}/>
-        </div>
-    )
-}
 
 function mapStateToProps({recipeButtonEnabled, recipeFormVisible}) {
     return {recipeButtonEnabled, recipeFormVisible }
