@@ -14,9 +14,9 @@ class RecipeForm extends Component{
     }
 
     submit = () => {
-        //persist data/send to postgress (eventually)
+        //persist data/send to postgres (eventually)
         //echo it out
-        // clear by setState to empty
+        //clear by setState to empty
         this.setState(() => ({
           name: '',
           ingredients: [{},{},{}]
@@ -24,16 +24,17 @@ class RecipeForm extends Component{
         }));
         document.getElementById('recipe-form').reset();
         this.props.handleClose()
-    }
+    };
 
-    handleNewIngredient = () =>{
+    handleNewIngredient = (clickEvent) =>{
+        clickEvent.preventDefault();
         this.setState(function () {
             //Add a new ingredient to the ingredients array
             return {
                 ingredients: this.state.ingredients.concat({})
             }
         })
-    }
+    };
 
     handleIngredientInputChange = (key, index, e) => {
       const changeValue = e.target.value;
@@ -49,10 +50,10 @@ class RecipeForm extends Component{
       }
 
       this.setState(() => ({ingredients:ingredientsArray}));
-    }
+    };
 
     generateIngredientsView = () =>{
-        var ingredientViews = []
+        var ingredientViews = [];
         var id = 0;
         this.state.ingredients.map((anIngredient) =>
         {
@@ -69,9 +70,9 @@ class RecipeForm extends Component{
                        value={anIngredient.ingredient} style={{width: '75%', display: 'block'}}/>
             </div> );
             id++;
-        })
+        });
         return ingredientViews;
-    }
+    };
 
     render(){
         var style = (this.props.isHidden) ? {display: "none"} : {display: "flex"};
@@ -92,7 +93,7 @@ class RecipeForm extends Component{
 
                             <div>{this.generateIngredientsView()}</div>
 
-                            {<a href="#" onClick={this.handleNewIngredient}>+ Add another Ingredient</a>}
+                            {<a href="#" onClick={ (clickEvent) => this.handleNewIngredient(clickEvent) }>+ Add Another Ingredient</a>}
 
                             <label style={{display: 'block'}}>Assign to a Day</label>
                             <select style={{width: '100%'}} defaultValue={'none'}>
@@ -114,11 +115,11 @@ class RecipeCreator extends Component{
 
     handleOpenForm = () => {
         this.props.recipeFormChanged(true)
-    }
+    };
 
     handleCloseForm = () => {
         this.props.recipeFormChanged(false)
-    }
+    };
 
     render(){
         return(
