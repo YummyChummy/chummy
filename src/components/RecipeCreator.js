@@ -9,7 +9,7 @@ class RecipeForm extends Component{
         super(props);
         this.state = {
             name: '',
-            ingredients: [{},{qty: 1, ingredient: 'something good'},{}]
+            ingredients: [{},{},{}]
         }
     }
 
@@ -34,52 +34,39 @@ class RecipeForm extends Component{
         })
     }
 
-    handleInputChange = (key, name, e) => {
+    handleIngredientInputChange = (key, index, e) => {
+      const changeValue = e.target.value;
       var ingredientsArray = this.state.ingredients;
-      if (key == 'qty') {
-        ingredientsArray[name].qty = e.target.value;
+      if (key === 'name') {
+          this.setState(() => ({name:changeValue}));
+      }
+      else if (key === 'qty') {
+        ingredientsArray[index].qty = changeValue;
       }
       else{
-        ingredientsArray[name].ingredient = e.target.value;
+        ingredientsArray[index].ingredient = changeValue;
       }
 
-      this.setState(() => ({ingredients:ingredientsArray}))
+      this.setState(() => ({ingredients:ingredientsArray}));
     }
-
-
 
     generateIngredientsView = () =>{
         var ingredientViews = []
         var id = 0;
         this.state.ingredients.map((anIngredient) =>
         {
-          var index = id;
-            if (anIngredient === {}) {
-              ingredientViews.push(
-                <div key={id} name='test' style={{display: 'flex', marginBottom: '3%'}}>
-                    <input id="quantity" type="text"
-                           onChange={(e) => this.handleInputChange('qty', index, e)}
-                           placeholder="E.g. 2 cups"
-                           defaultValue={''} style={{width: '25%', marginRight: '3%'}}/>
-                    <input id="ingredient" type="text"
-                           onChange={(e) => this.handleInputChange('ingredient', index, e)}
-                           placeholder="E.g. Brown sugar"
-                           defaultValue={''} style={{width: '75%', display: 'block'}}/>
-                </div>);
-            }
-            else{
+            var index = id;
             ingredientViews.push(
-            <div key={id} name ='test' style={{display: 'flex', marginBottom: '3%'}}>
+            <div key={id} style={{display: 'flex', marginBottom: '3%'}}>
                 <input id="quantity" type="text"
-                       onChange={(e) => this.handleInputChange('qty',index, e)}
+                       onChange={(e) => this.handleIngredientInputChange('qty',index, e)}
                        placeholder="E.g. 2 cups"
                        defaultValue={anIngredient.qty} style={{width: '25%', marginRight: '3%'}}/>
                 <input id="ingredient" type="text"
-                       onChange={(e) => this.handleInputChange('ingredient',index, e)}
+                       onChange={(e) => this.handleIngredientInputChange('ingredient',index, e)}
                        placeholder="E.g. Brown sugar"
                        defaultValue={anIngredient.ingredient} style={{width: '75%', display: 'block'}}/>
             </div> );
-            }
             id++;
         })
         return ingredientViews;
@@ -96,7 +83,9 @@ class RecipeForm extends Component{
                     <div className="bodyText">
                         <form>
                             <label style={{display: 'block'}} htmlFor="recipeName">Recipe Name</label>
-                            <input id='recipeName' type="text" placeholder="Enter a catchy name for your recipe"/>
+                            <input id='recipeName' type="text"
+                                   onChange={(e) => this.handleIngredientInputChange('name',null, e)}
+                                   placeholder="Enter a catchy name for your recipe"/>
                             <IngredientsHeader />
 
                             <div>{this.generateIngredientsView()}</div>
