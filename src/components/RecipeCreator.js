@@ -85,22 +85,28 @@ class RecipeForm extends Component{
                 <div className="card-body">
                     <div className="bodyText" style={{overflow: "auto"}}>
                         <form id="recipe-form">
-                            <label style={{display: 'block'}} htmlFor="recipeName">Recipe Name</label>
-                            <input id='recipeName' type="text"
-                                   onChange={(e) => this.handleIngredientInputChange('name', null, e)}
-                                   placeholder="Enter a catchy name for your recipe"/>
-                            <IngredientsHeader />
+                            <div>
+                                <label  htmlFor="recipeName">Recipe Name</label>
+                                <input id='recipeName' type="text"
+                                       onChange={(e) => this.handleIngredientInputChange('name', null, e)}
+                                       placeholder="Enter a catchy name for your recipe"/>
+                            </div>
 
-                            <div>{this.generateIngredientsView()}</div>
+                            <div style={{display: 'block'}} className="recipe-card-contents">
+                                <IngredientsHeader/>
+    
+                                <div>{this.generateIngredientsView()}</div>
 
-                            {<a href="#" onClick={ (clickEvent) => this.handleNewIngredient(clickEvent) }>+ Add Another Ingredient</a>}
+                                {<a href="#" onClick={ (clickEvent) => this.handleNewIngredient(clickEvent) }>+ Add Another Ingredient</a>}
+                            </div>
 
-                            <label style={{display: 'block'}}>Assign to a Day</label>
-                            <select style={{width: '100%'}} defaultValue={'none'}>
-                                <option value={'none'}>No day selected</option>
+                            <div className="recipe-card-contents">
+                                <label style={{display: 'block'}}>Assign to a Day</label>
+                                <select style={{width: '100%'}} defaultValue={'none'}>
+                                    <option value={'none'}>No day selected</option>
 
-
-                            </select>
+                                </select>
+                            </div>
 
                             <button className="recipe-button" onClick={this.submit} style={{width: '50%'}}>Submit</button>
                         </form>
@@ -134,9 +140,9 @@ class RecipeCreator extends Component{
 
 function IngredientsHeader() {
     return (
-        <div style={{display: 'flex', margin: '10% 0% 1% 0%'}}>
-            <label>Quantity</label>
-            <label>Ingredient</label>
+        <div>
+            <label className='bodyText'>Quantity</label>
+            <label className='bodyText'>Ingredient</label>
         </div>
     )
 }

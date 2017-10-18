@@ -65,7 +65,8 @@ body {
 
 .card-body {
   box-shadow: 2px 2px 10px grey ;
-  border-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
   background-color: white;
   flex-grow: 4;
   padding:10%;
@@ -147,7 +148,7 @@ h2 {
 
 .recipe-card {
   @extend .card;
-  width: 25%;
+  width: 30%;
   height: 90%;
   margin-top: 3%;
 
@@ -156,8 +157,13 @@ h2 {
   }
 
   @include breakpoint-for($tablet) {
-    width: 35%;
+    width: 50%;
   }
+}
+
+.recipe-card-contents {
+  display: flex;
+  margin: 10% 0% 1% 0%;
 }
 
 .card-header {
