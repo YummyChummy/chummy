@@ -22,6 +22,7 @@ class RecipeForm extends Component{
           ingredients: [{},{},{}]
 
         }));
+        document.getElementById('recipe-form').reset();
         this.props.handleClose()
     }
 
@@ -61,11 +62,11 @@ class RecipeForm extends Component{
                 <input id="quantity" type="text"
                        onChange={(e) => this.handleIngredientInputChange('qty',index, e)}
                        placeholder="E.g. 2 cups"
-                       defaultValue={anIngredient.qty} style={{width: '25%', marginRight: '3%'}}/>
+                       value={anIngredient.qty} style={{width: '25%', marginRight: '3%'}}/>
                 <input id="ingredient" type="text"
                        onChange={(e) => this.handleIngredientInputChange('ingredient',index, e)}
                        placeholder="E.g. Brown sugar"
-                       defaultValue={anIngredient.ingredient} style={{width: '75%', display: 'block'}}/>
+                       value={anIngredient.ingredient} style={{width: '75%', display: 'block'}}/>
             </div> );
             id++;
         })
@@ -81,7 +82,7 @@ class RecipeForm extends Component{
                 </h2>
                 <div className="card-body">
                     <div className="bodyText">
-                        <form>
+                        <form id="recipe-form">
                             <label style={{display: 'block'}} htmlFor="recipeName">Recipe Name</label>
                             <input id='recipeName' type="text"
                                    onChange={(e) => this.handleIngredientInputChange('name',null, e)}
