@@ -75,17 +75,18 @@ class RecipeForm extends Component{
 
     render(){
         var style = (this.props.isHidden) ? {display: "none"} : {display: "flex"};
+
         return(
             <div className="recipe-card" style={style}>
                 <h2 className="orange-header">
                     Create a Recipe
                 </h2>
                 <div className="card-body">
-                    <div className="bodyText">
+                    <div className="bodyText" style={{overflow: "auto"}}>
                         <form id="recipe-form">
                             <label style={{display: 'block'}} htmlFor="recipeName">Recipe Name</label>
                             <input id='recipeName' type="text"
-                                   onChange={(e) => this.handleIngredientInputChange('name',null, e)}
+                                   onChange={(e) => this.handleIngredientInputChange('name', null, e)}
                                    placeholder="Enter a catchy name for your recipe"/>
                             <IngredientsHeader />
 
