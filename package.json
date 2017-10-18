@@ -31,7 +31,12 @@
   },
   "homepage": "https://github.com/YummyChummy/chummy#readme",
   "dependencies": {
+    "axios": "^0.16.2",
+    "bluebird": "^3.5.1",
     "express": "^4.15.5",
+    "heroku": "^0.2.0",
+    "pg": "7.3.0",
+    "pg-promise": "^7.0.2",
     "prop-types": "^15.6.0",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
