@@ -93,6 +93,13 @@ class RecipeForm extends Component{
 
                             {<a href="#" onClick={this.handleNewIngredient}>+ Add another Ingredient</a>}
 
+                            <label style={{display: 'block'}}>Assign to a Day</label>
+                            <select style={{width: '100%'}} defaultValue={'none'}>
+                                <option value={'none'}>No day selected</option>
+
+
+                            </select>
+
                             <button className="recipe-button" onClick={this.submit} style={{width: '50%'}}>Submit</button>
                         </form>
                     </div>
