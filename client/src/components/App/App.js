@@ -3,9 +3,9 @@ var ReactRouter = require('react-router-dom');
 var Router = ReactRouter.BrowserRouter;
 var Route = ReactRouter.Route;
 var Switch = ReactRouter.Switch;
-var LivingStyleGuide = require('../LivingStyleGuide');
-var Nav = require('../Nav');
-import Home from '../Home'
+var LivingStyleGuide = require('../LivingStyleGuide/LivingStyleGuide');
+var Nav = require('../Nav/Nav');
+import Home from '../Home/Home'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import * as chummyActionCreaters from "../../redux/modules/chummy"

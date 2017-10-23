@@ -1,12 +1,13 @@
 var React = require('react');
+import styles from './Logo.scss'
 
 class Logo extends React.Component {
     render() {
         return (
-            <h1 className="logo">
+            <h1 className={styles.logo}>
                 <logo>
-                    <span className="orange">chum</span>
-                    <span className="green">my</span>
+                    <span className={styles.orange}>chum</span>
+                    <span className={styles.green}>my</span>
                 </logo>
             </h1>
         );

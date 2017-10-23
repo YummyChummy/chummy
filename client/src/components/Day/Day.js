@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import styles from "./Day.scss"
 
 function RecipesView (props) {
     return(
-        <div className="card-body">
-            <div className="bodyTextCard">
+        <div className={styles.cardBody}>
+            <div className={styles.bodyTextCard}>
                 No recipes added yet.
                 <select style={{width: '100%'}} defaultValue={'none'}>
                     <option value={'none'}>Please choose a recipe</option>
@@ -19,8 +20,8 @@ class Day extends Component {
 
     render() {
         return (
-            <div className="day-card" hidden={this.props.isHidden}>
-                <h2 className="green-header">
+            <div className={styles.dayCard} hidden={this.props.isHidden}>
+                <h2 className={styles.greenHeader}>
                     {this.props.header}
                 </h2>
                 <RecipesView/>

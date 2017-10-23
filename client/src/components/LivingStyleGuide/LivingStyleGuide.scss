@@ -1,0 +1,15 @@
+@import '../../sharedStyles/index';
+@import '../../sharedStyles/breakpoints';
+@import '../../sharedStyles/reset';
+
+.livingStyleGuide {
+  background-color: white;
+}
+
+.bodyText {
+  font-family: 'Roboto', sans-serif;
+  line-height: 125%;
+  font-size: 1.0rem;
+  fill: $charcoal_color;
+  height: 400px;
+}

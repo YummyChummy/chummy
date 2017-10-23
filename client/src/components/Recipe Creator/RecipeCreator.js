@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import * as chummyActionCreators from "../redux/modules/chummy"
+import * as chummyActionCreators from "../../redux/modules/chummy"
+import styles from './RecipeCreator.scss'
 
 class RecipeForm extends Component{
 
@@ -78,12 +79,12 @@ class RecipeForm extends Component{
         var style = (this.props.isHidden) ? {display: "none"} : {display: "flex"};
 
         return(
-            <div className="recipe-card" style={style}>
-                <h2 className="orange-header">
+            <div className={styles.recipeCard} style={style}>
+                <h2 className={styles.orangeHeader}>
                     Create a Recipe
                 </h2>
-                <div className="card-body">
-                    <div className="bodyText" style={{overflow: "auto"}}>
+                <div className={styles.cardBody}>
+                    <div className={styles.bodyText} style={{overflow: "auto"}}>
                         <form id="recipe-form">
                             <label style={{display: 'block'}} htmlFor="recipeName">Recipe Name</label>
                             <input id='recipeName' type="text"
@@ -102,7 +103,7 @@ class RecipeForm extends Component{
 
                             </select>
 
-                            <button className="recipe-button" onClick={this.submit} style={{width: '50%'}}>Submit</button>
+                            <button className={styles.recipeButton} onClick={this.submit} style={{width: '50%'}}>Submit</button>
                         </form>
                     </div>
                 </div>
@@ -123,8 +124,8 @@ class RecipeCreator extends Component{
 
     render(){
         return(
-            <div className='recipe-creator'>
-                <button className="recipe-button" onClick={this.handleOpenForm} disabled={!this.props.recipeButtonEnabled}>Create a Recipe</button>
+            <div className={styles.recipeCreator}>
+                <button className={styles.recipeButton} onClick={this.handleOpenForm} disabled={!this.props.recipeButtonEnabled}>Create a Recipe</button>
                 <RecipeForm isHidden={!this.props.recipeFormVisible} handleClose={this.handleCloseForm}/>
             </div>
 

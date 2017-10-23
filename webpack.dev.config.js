@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: './client/src/index.js',
@@ -12,8 +13,42 @@ module.exports = {
     rules: [
       { test: /\.(js)$/, use: 'babel-loader' },
       { test: /\.jsx?$/, exclude:'/node_modules', loader: 'babel-loader', query: {plugins: ['transform-class-properties']}},
-        { test: /\.css$/, use: [ 'style-loader', 'css-loader' ] },
-      { test: /\.scss$/, use: [ 'style-loader', 'css-loader', 'sass-loader' ] }
+      // { test: /\.css$/, use: 'style-loader!css-loader?sourceMap&modules&localIdentName=[name]__[local]___[hash:base64:5]-loader'},
+      // { test: /\.scss$/, use: [ 'style-loader', 'css-loader', 'sass-loader' ] }
+        {
+            test: /\.css$/,
+            use: ExtractTextPlugin.extract({
+                fallback: 'style-loader',
+                use: [
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            localIdentName: '[name]__[local]___[hash:base64:5]'
+                        }
+                    },
+                    'postcss-loader'
+                ]
+            })
+        },
+        {
+            test: /\.scss$/,
+            use: ExtractTextPlugin.extract({
+                fallback: 'style-loader',
+                use: [
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            sourceMap: true,
+                            importLoaders: 2,
+                            localIdentName: '[name]__[local]___[hash:base64:5]'
+                        }
+                    },
+                    'sass-loader'
+                ]
+            })
+        }
     ]
   },
   devServer: {
@@ -23,7 +58,9 @@ module.exports = {
       },
       historyApiFallback: true
   },
-  plugins: [ new HtmlWebpackPlugin({
-    template: 'client/src/index.html'
-  })]
+  plugins: [
+      new HtmlWebpackPlugin({template: 'client/src/index.html'}),
+      new ExtractTextPlugin({ filename: 'styles.css', allChunks: true }),
+
+  ]
 };

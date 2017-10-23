@@ -1,16 +1,14 @@
 var React = require('react');
 var Link = require('react-router-dom').Link;
-var Logo = require('./Logo');
-var ItemDescription = require('./ItemDescription');
+var Logo = require('../Logo/Logo');
+var ItemDescription = require('../Item Description/ItemDescription');
+import styles from './LivingStyleGuide.scss'
 
 class LivingStyleGuide extends React.Component {
-    componentDidMount () {
-        document.body.className="LivingStyleGuide";
-    }
 
     render(){
         return (
-            <div>
+            <div >
                 <h1 style={{padding:'1.0rem 0 0 1.0rem'}}>Style Guide</h1>
                 <Logo/>
                 <div style={{paddingLeft:'1.0rem'}}>
@@ -42,7 +40,7 @@ class LivingStyleGuide extends React.Component {
                         </div>
 
                         <div>
-                            <span className="bodyText">The quick brown fox jumps over the lazy dog.</span>
+                            <span className={styles.bodyText}>The quick brown fox jumps over the lazy dog.</span>
                             <ItemDescription item="BODY" description="1.0rem"/>
                             <br/>
                         </div>
@@ -52,54 +50,54 @@ class LivingStyleGuide extends React.Component {
                     <div>
                         <h2 style={{fontWeight: 'bold'}}>Colors</h2>
                         <br/>
-                        <span className="bodyText" style={{fontWeight: 'bold'}}>APP COLORS</span>
+                        <span className={styles.bodyText} style={{fontWeight: 'bold'}}>APP COLORS</span>
                         <br/>
                         <br/>
 
                         <svg width="750" height="170">
                             <g>
-                                <rect width="150" height="150" className="charcoal"/>
-                                <text x="40" y="135" className="bodyText" style={{fill:'white'}}>#2A2D34</text>
+                                <rect width="150" height="150" className={styles.charcoal}/>
+                                <text x="40" y="135" className={styles.bodyText} style={{fill:'white'}}>#2A2D34</text>
                             </g>
                             <g>
-                                <rect width="150" height="150" x="150" className="grey"/>
-                                <text x="190" y="135" className="bodyText" style={{fill:'white'}}>#77797D</text>
+                                <rect width="150" height="150" x="150" className={styles.grey}/>
+                                <text x="190" y="135" className={styles.bodyText} style={{fill:'white'}}>#77797D</text>
                             </g>
                             <g>
-                                <rect width="150" height="150" x="300" className="green"/>
-                                <text x="340" y="135" className="bodyText" style={{fill:'white'}}>#009B72</text>
+                                <rect width="150" height="150" x="300" className={styles.green}/>
+                                <text x="340" y="135" className={styles.bodyText} style={{fill:'white'}}>#009B72</text>
                             </g>
                             <g>
-                                <rect width="150" height="150" x="450" className="orange"/>
-                                <text x="490" y="135" className="bodyText" style={{fill:'white'}}>#F26430</text>
+                                <rect width="150" height="150" x="450" className={styles.orange}/>
+                                <text x="490" y="135" className={styles.bodyText} style={{fill:'white'}}>#F26430</text>
                             </g>
                             <g>
-                                <rect width="150" height="150" x="600" className="taupe"/>
-                                <text x="640" y="135" className="bodyText">#DDC9B4</text>
+                                <rect width="150" height="150" x="600" className={styles.taupe}/>
+                                <text x="640" y="135" className={styles.bodyText}>#DDC9B4</text>
                             </g>
                         </svg>
                         <br/>
 
-                        <span className="bodyText" style={{fontWeight: 'bold'}}>ALERT COLORS</span>
+                        <span className={styles.bodyText} style={{fontWeight: 'bold'}}>ALERT COLORS</span>
                         <br/>
                         <br/>
 
                         <svg width="600" height="170">
                             <g>
-                                <rect width="150" height="150" className="red"/>
-                                <text x="40" y="135" className="bodyText" style={{fill:'white'}}>#D0021B</text>
+                                <rect width="150" height="150" className={styles.red}/>
+                                <text x="40" y="135" className={styles.bodyText} style={{fill:'white'}}>#D0021B</text>
                             </g>
                             <g>
-                                <rect width="150" height="150" x="150" className="green"/>
-                                <text x="190" y="135" className="bodyText" style={{fill:'white'}}>#009B72</text>
+                                <rect width="150" height="150" x="150" className={styles.green}/>
+                                <text x="190" y="135" className={styles.bodyText} style={{fill:'white'}}>#009B72</text>
                             </g>
                             <g>
-                                <rect width="150" height="150" x="300" className="yellow"/>
-                                <text x="340" y="135" className="bodyText">#F5BF23</text>
+                                <rect width="150" height="150" x="300" className={styles.yellow}/>
+                                <text x="340" y="135" className={styles.bodyText}>#F5BF23</text>
                             </g>
                             <g>
-                                <rect width="150" height="150" x="450" className="blue"/>
-                                <text x="490" y="135" className="bodyText" style={{fill:'white'}}>#4A90E2</text>
+                                <rect width="150" height="150" x="450" className={styles.blue}/>
+                                <text x="490" y="135" className={styles.bodyText} style={{fill:'white'}}>#4A90E2</text>
                             </g>
                         </svg>
                         <br/>

@@ -1,10 +1,11 @@
 var React = require('react');
-var Day = require('./Day/Day');
-import RecipeCreator from './RecipeCreator'
+var Day = require('../Day/Day');
+import RecipeCreator from '../Recipe Creator/RecipeCreator'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import * as chummyActionCreaters from "../redux/modules/chummy"
+import * as chummyActionCreaters from "../../redux/modules/chummy"
 import axios from 'axios'
+import styles from './Home.scss'
 
 class Home extends React.Component {
     constructor(props) {
@@ -21,9 +22,9 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-                <div className="container">
+                <div className={styles.container}>
 
-                    <div className="intro">
+                    <div className={styles.intro}>
                         <h1>
                             Make meal planning fun!
                         </h1>
@@ -33,7 +34,7 @@ class Home extends React.Component {
                         </h2>
                     </div>
                     <RecipeCreator />
-                    <div className="days-container">
+                    <div className={styles.daysContainer}>
                         <Day header="Monday" isHidden={this.props.recipeFormVisible}/>
                         <Day header="Tuesday" isHidden={this.props.recipeFormVisible}/>
                         <Day header="Wednesday" isHidden={this.props.recipeFormVisible}/>

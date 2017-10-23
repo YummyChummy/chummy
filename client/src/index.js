@@ -1,6 +1,6 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
-require('./styles/index.scss');
+require('./sharedStyles/index.scss');
 import App from './components/App/App';
 import {createStore, applyMiddleware} from 'redux'
 import {Provider} from 'react-redux'

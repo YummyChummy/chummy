@@ -1,10 +1,11 @@
 var React = require('react');
 var Link = require('react-router-dom').Link;
-var Logo = require('./Logo');
+var Logo = require('../Logo/Logo');
+import styles from './Nav.scss'
 
 function Nav () {
     return (
-        <div className="nav">
+        <div className={styles.nav}>
             <Logo />
         </div>
     )
