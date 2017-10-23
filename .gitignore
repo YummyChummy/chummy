@@ -34,6 +34,7 @@ server/build/Release
 
 # Build files
 server/build/
+server/build/*
 
 # Dependency directories
 node_modules/
