@@ -1,14 +1,14 @@
 var React = require('react');
-
+import styles from './ItemDescription.scss'
 
 class ItemDescription extends React.Component {
     render(){
         return (
-            <div className="itemDescription">
+            <div>
                 <p>
-                    <span className="bodyText" style={{fontWeight: 'bold'}}>{this.props.item}</span>
+                    <span className={styles.bodyText} style={{fontWeight: 'bold'}}>{this.props.item}</span>
                     <span> — </span>
-                    <span className="bodyText">{this.props.description}</span>
+                    <span className={styles.bodyText}>{this.props.description}</span>
                 </p>
             </div>
         )

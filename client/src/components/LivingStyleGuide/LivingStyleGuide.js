@@ -8,7 +8,7 @@ class LivingStyleGuide extends React.Component {
 
     render(){
         return (
-            <div >
+            <div className={styles.livingStyleGuide}>
                 <h1 style={{padding:'1.0rem 0 0 1.0rem'}}>Style Guide</h1>
                 <Logo/>
                 <div style={{paddingLeft:'1.0rem'}}>
