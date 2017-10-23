@@ -1,6 +1,5 @@
-@import '../../sharedStyles/index';
-@import '../../sharedStyles/breakpoints';
-@import '../../sharedStyles/reset';
+@import '../../sharedStyles/breakpoints.scss';
+@import "../../sharedStyles/colors.scss";
 
 .card {
   display: flex;
