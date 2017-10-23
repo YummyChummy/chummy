@@ -7,9 +7,12 @@
     "node": "6.11.1"
   },
   "scripts": {
+    "devServer": "NODE_ENV=development node server.js",
+    "prodServer": "NODE_ENV=production node server.js",
     "start": "webpack-dev-server -d --progress",
     "build": "webpack -p --progress",
-    "prod": "npm run build && NODE_ENV=production node server.js",
+    "dev": "npm run devServer & npm run start",
+    "prod": "npm run build && npm run prodServer",
     "postinstall": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

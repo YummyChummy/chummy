@@ -4,11 +4,18 @@ import RecipeCreator from './RecipeCreator'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import * as chummyActionCreaters from "../redux/modules/chummy"
-
+import axios from 'axios'
 
 class Home extends React.Component {
     constructor(props) {
         super(props)
+    }
+
+    componentDidMount() {
+        console.log("Mounted!")
+        axios.get("/")
+            .then( (response) => console.log(response.data))
+            .catch( (err) => console.log(err))
     }
 
     render() {
