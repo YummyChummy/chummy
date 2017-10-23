@@ -7,8 +7,8 @@
     "node": "6.11.1"
   },
   "scripts": {
-    "devServer": "NODE_ENV=development node server.js",
-    "prodServer": "NODE_ENV=production node server.js",
+    "devServer": "NODE_ENV=development node server/server.js",
+    "prodServer": "NODE_ENV=production node server/server.js",
     "start": "webpack-dev-server -d --progress",
     "build": "webpack -p --progress",
     "dev": "npm run devServer & npm run start",

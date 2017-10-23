@@ -1,5 +1,5 @@
 var React = require('react');
-var Day = require('./Day');
+var Day = require('./Day/Day');
 import RecipeCreator from './RecipeCreator'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
@@ -13,7 +13,7 @@ class Home extends React.Component {
 
     componentDidMount() {
         console.log("Mounted!")
-        axios.get("/")
+        axios.get("/api/recipes")
             .then( (response) => console.log(response.data))
             .catch( (err) => console.log(err))
     }

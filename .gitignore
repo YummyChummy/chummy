@@ -30,13 +30,14 @@ bower_components
 .lock-wscript
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
-build/Release
+server/build/Release
 
 # Build files
-build/
+server/build/
 
 # Dependency directories
 node_modules/
+node_modules/*
 jspm_packages/
 
 # Typescript v1 declaration files
@@ -59,7 +60,7 @@ typings/
 
 # dotenv environment variables file
 .env
-
+.idea/
 .idea/*
 *.iml
 

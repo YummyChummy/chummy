@@ -1,0 +1,62 @@
+.card-body {
+  box-shadow: 2px 2px 10px grey ;
+  border-radius: 4px;
+  background-color: white;
+  flex-grow: 4;
+  padding:10%;
+}
+
+.bodyText {
+  font-family: 'Roboto', sans-serif;
+  line-height: 125%;
+  font-size: 1.0rem;
+  fill: $charcoal_color;
+  height: 400px;
+}
+
+.bodyTextCard{
+  height:0%;
+  @extend .bodyText;
+  font-style: italic;
+  color: $grey_color;
+}
+
+.card {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 20%;
+  margin: 0 5% 10% 0;
+  //- a day should be 1.4 times taller than it is wide
+}
+
+.day-card {
+  @extend .card;
+  margin: 0 5% 5% 0;
+  height: 35vh;
+
+  @include breakpoint-for($mobile) {
+    width: 100%;
+  }
+
+  @include breakpoint-for($tablet) {
+    width: 27%;
+    height: 20vh;
+  }
+
+  @include breakpoint-for($large-tablet) {
+    height: 20vh;
+  }
+}
+
+.card-header {
+  padding: 5% 10% 5% 10%;
+  border-radius: 4px 4px 0 0;
+  flex-grow: 0;
+}
+
+.green-header {
+  @extend .card-header;
+  background-color: $green_color;
+  color: white;
+}

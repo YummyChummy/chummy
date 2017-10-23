@@ -9,11 +9,11 @@ const extractSass = new ExtractTextPlugin({
 });
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './client/src/index.js',
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'server/build'),
     filename: 'index_bundle.js',
-    publicPath: '/'
+    publicPath: '/client'
   },
   resolve: {
     extensions: ['.js', '.jsx', '.css', '.json']
@@ -45,7 +45,7 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
-        template: './src/index.html'
+        template: './client/src/index.html'
     }),
       extractSass
   ]
