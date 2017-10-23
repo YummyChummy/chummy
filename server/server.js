@@ -2,8 +2,8 @@ const db =  require("./api/db/pg_init")
 const express = require('express');
 const path = require('path');
 const app = express();
-const prodConfig = require('../webpack.prod.config');
-const port = process.env.PORT || prodConfig.devServer.port;
+const config = require('../webpack.config');
+const port = process.env.PORT || config.devServer.port;
 
 app.use(express.static(path.join(__dirname, 'build')));
 

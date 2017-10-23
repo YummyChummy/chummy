@@ -13,8 +13,6 @@ module.exports = {
     rules: [
       { test: /\.(js)$/, use: 'babel-loader' },
       { test: /\.jsx?$/, exclude:'/node_modules', loader: 'babel-loader', query: {plugins: ['transform-class-properties']}},
-      // { test: /\.css$/, use: 'style-loader!css-loader?sourceMap&modules&localIdentName=[name]__[local]___[hash:base64:5]-loader'},
-      // { test: /\.scss$/, use: [ 'style-loader', 'css-loader', 'sass-loader' ] }
         {
             test: /\.css$/,
             use: ExtractTextPlugin.extract({
