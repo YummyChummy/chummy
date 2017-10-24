@@ -14,15 +14,16 @@ class RecipeForm extends Component{
         }
     }
 
-    submit = () => {
+    submit = (clickEvent) => {
         //persist data/send to postgres (eventually)
         //echo it out
         //clear by setState to empty
         this.setState(() => ({
-          name: '',
-          ingredients: [{},{},{}]
+            name: '',
+            ingredients: [{},{},{}]
 
         }));
+        clickEvent.preventDefault();
         document.getElementById('recipe-form').reset();
         this.props.handleClose()
     };
@@ -38,38 +39,43 @@ class RecipeForm extends Component{
     };
 
     handleIngredientInputChange = (key, index, e) => {
-      const changeValue = e.target.value;
-      var ingredientsArray = this.state.ingredients;
-      if (key === 'name') {
-          this.setState(() => ({name:changeValue}));
-      }
-      else if (key === 'qty') {
-        ingredientsArray[index].qty = changeValue;
-      }
-      else{
-        ingredientsArray[index].ingredient = changeValue;
-      }
+        const changeValue = e.target.value;
+        var ingredientsArray = this.state.ingredients;
+        if (key === 'name') {
+            this.setState(() => ({name:changeValue}));
+        }
+        else if (key === 'qty') {
+            ingredientsArray[index].qty = changeValue;
+        }
+        else{
+            ingredientsArray[index].ingredient = changeValue;
+        }
 
-      this.setState(() => ({ingredients:ingredientsArray}));
+        this.setState(() => ({ingredients:ingredientsArray}));
     };
 
     generateIngredientsView = () =>{
         var ingredientViews = [];
         var id = 0;
+
         this.state.ingredients.map((anIngredient) =>
         {
             var index = id;
+
             ingredientViews.push(
-            <div key={id} style={{display: 'flex', marginBottom: '3%'}}>
-                <input id="quantity" type="text"
-                       onChange={(e) => this.handleIngredientInputChange('qty',index, e)}
-                       placeholder="E.g. 2 cups"
-                       value={anIngredient.qty} style={{width: '25%', marginRight: '3%'}}/>
-                <input id="ingredient" type="text"
-                       onChange={(e) => this.handleIngredientInputChange('ingredient',index, e)}
-                       placeholder="E.g. Brown sugar"
-                       value={anIngredient.ingredient} style={{width: '75%', display: 'block'}}/>
-            </div> );
+                <div key={id} style={{display: 'flex', marginBottom: '3%'}}>
+                    <input id="quantity" type="text"
+                           className={styles.textInputBox}
+                           onChange={(e) => this.handleIngredientInputChange('qty',index, e)}
+                           placeholder="E.g. 2 cups"
+                           value={anIngredient.qty} style={{width: '25%', marginRight: '3%'}}/>
+                    <input id="ingredient" type="text"
+                           className={styles.textInputBox}
+                           onChange={(e) => this.handleIngredientInputChange('ingredient',index, e)}
+                           placeholder="E.g. Brown sugar"
+                           value={anIngredient.ingredient} style={{width: '75%', display: 'block'}}/>
+
+                </div>);
             id++;
         });
         return ingredientViews;
@@ -84,26 +90,38 @@ class RecipeForm extends Component{
                     Create a Recipe
                 </h2>
                 <div className={styles.cardBody}>
-                    <div className={styles.bodyText} style={{overflow: "auto"}}>
+                    <div className={styles.bodyContent}>
                         <form id="recipe-form">
-                            <label style={{display: 'block'}} htmlFor="recipeName">Recipe Name</label>
-                            <input id='recipeName' type="text"
-                                   onChange={(e) => this.handleIngredientInputChange('name', null, e)}
-                                   placeholder="Enter a catchy name for your recipe"/>
-                            <IngredientsHeader />
 
-                            <div>{this.generateIngredientsView()}</div>
+                            <div>
+                                <label htmlFor="recipeName" className={styles.labels}>Recipe Name</label>
+                                <input id='recipeName' type="text"
+                                       className={styles.textInputBox}
+                                       style={{width:'97%', paddingRight:0}}
+                                       onChange={(e) => this.handleIngredientInputChange('name', null, e)}
+                                       placeholder="Enter a catchy name for your recipe"/>
+                            </div>
 
-                            {<a href="#" onClick={ (clickEvent) => this.handleNewIngredient(clickEvent) }>+ Add Another Ingredient</a>}
+                            <div style={{display: 'block'}} className={styles.recipeCardContents}>
 
-                            <label style={{display: 'block'}}>Assign to a Day</label>
-                            <select style={{width: '100%'}} defaultValue={'none'}>
-                                <option value={'none'}>No day selected</option>
+                                <div style={{display: 'flex'}}>
+                                        <label htmlFor="quantity" className={styles.labels} style={{width: '32%', marginRight: '3%', borderRadius: '3px'}}>Quantity</label>
+                                        <label htmlFor="ingredient" className={styles.labels} style={{width: '72%', display: 'block'}}>Ingredient</label>
+                                </div>
 
+                                <div className={styles.ingredientsView}>{this.generateIngredientsView()}</div>
+                                {<a className={styles.addIngredientAnchor} href="#" onClick={ (clickEvent) => this.handleNewIngredient(clickEvent) }>+ Add Another Ingredient</a>}
+                            </div>
 
-                            </select>
+                            <div className={styles.recipeCardContents} style={{display: 'block'}}>
+                                <label className={styles.labels}>Assign to a Day</label>
+                                <select style={{width: '100%'}} defaultValue={'none'}>
+                                    <option value={'none'}>No day selected</option>
 
-                            <button className={styles.recipeButton} onClick={this.submit} style={{width: '50%'}}>Submit</button>
+                                </select>
+                            </div>
+
+                            <button className={styles.recipeCardContents + ' ' +  styles.recipeButton} onClick={(clickEvent) => this.submit(clickEvent)} style={{width: '100%', margin: '10% 0% 1% 0%'}}>Submit</button>
                         </form>
                     </div>
                 </div>
@@ -131,15 +149,6 @@ class RecipeCreator extends Component{
 
         )
     }
-}
-
-function IngredientsHeader() {
-    return (
-        <div style={{display: 'flex', margin: '10% 0% 1% 0%'}}>
-            <label>Quantity</label>
-            <label>Ingredient</label>
-        </div>
-    )
 }
 
 

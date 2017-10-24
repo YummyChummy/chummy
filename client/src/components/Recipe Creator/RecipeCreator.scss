@@ -1,5 +1,4 @@
-@import '../../sharedStyles/breakpoints.scss';
-@import "../../sharedStyles/colors.scss";
+@import '../../sharedStyles/index.scss';
 
 .card {
   display: flex;
@@ -16,7 +15,7 @@
 
 .recipeCard {
   @extend .card;
-  width: 25%;
+  width: 35%;
   height: 90%;
   margin-top: 3%;
 
@@ -27,6 +26,11 @@
   @include breakpoint-for($tablet) {
     width: 35%;
   }
+}
+
+.recipeCardContents {
+  display: flex;
+  margin: 10% 0% 1% 0%;
 }
 
 .cardHeader {
@@ -49,15 +53,14 @@
   padding:10%;
 }
 
-.bodyText {
+.bodyContent {
   font-family: 'Roboto', sans-serif;
   line-height: 125%;
   font-size: 1.0rem;
   fill: $charcoal_color;
-  height: 400px;
 }
 
-.recipeButton{
+.recipeButton {
   cursor: pointer;
   transition-duration: 0.4s;
   margin: 1% 0 1% 0;
@@ -78,4 +81,34 @@
   @include breakpoint-for($tablet){
     width: 25%;
   }
+}
+
+.addIngredientAnchor{
+  font-size: small;
+  color: $blue_color;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.labels {
+  display: block;
+  font-weight: bold;
+  font-size: small;
+  margin-bottom: 1%;
+}
+
+.ingredientsView{
+  max-height: 240px;
+  overflow: scroll;
+  margin-bottom: 5%;
+}
+
+.textInputBox {
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: $grey_color;
+  line-height: 1;
+  padding: 4% 2%;
+  font-size: small;
 }
