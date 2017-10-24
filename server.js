@@ -4,7 +4,6 @@ const app = express();
 const prodConfig = require('./webpack.prod.config');
 const port = process.env.PORT || prodConfig.devServer.port;
 
-
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('*', (req, res) => {

@@ -77,7 +77,6 @@ body {
   line-height: 125%;
   font-size: 1.0rem;
   fill: $charcoal_color;
-  height: 400px;
 }
 
 .bodyTextCard{
@@ -205,13 +204,14 @@ h2 {
   margin: 1% 0 1% 0;
   padding: 10px;
   text-align: center;
-  background-color: $charcoal_color;
+  background-color: $orange_color;
   color: white;
   border-radius: 4px;
   width: 18%;
   display: block;
   border: none;
   font-size: medium;
+
 
   @include breakpoint-for($mobile){
     width: 40%;
@@ -235,3 +235,11 @@ a{
   text-decoration:none;
 }
 
+.text-input-box {
+  border-radius: 2px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: $grey_color;
+  line-height: 3;
+  padding: 5%;
+}
