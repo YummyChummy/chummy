@@ -24,7 +24,7 @@
   }
 
   @include breakpoint-for($tablet) {
-    width: 35%;
+    width: 50%;
   }
 }
 
@@ -101,6 +101,7 @@
   max-height: 240px;
   overflow: scroll;
   margin-bottom: 5%;
+  padding: 2%;
 }
 
 .textInputBox {
@@ -110,5 +111,12 @@
   border-color: $grey_color;
   line-height: 1;
   padding: 4% 2%;
+  font-size: small;
+}
+
+.daySelect {
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
   font-size: small;
 }

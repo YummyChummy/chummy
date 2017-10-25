@@ -93,7 +93,7 @@ class RecipeForm extends Component{
                     <div className={styles.bodyContent}>
                         <form id="recipe-form">
 
-                            <div>
+                            <div style={{padding: '0% 2%'}}>
                                 <label htmlFor="recipeName" className={styles.labels}>Recipe Name</label>
                                 <input id='recipeName' type="text"
                                        className={styles.textInputBox}
@@ -104,9 +104,9 @@ class RecipeForm extends Component{
 
                             <div style={{display: 'block'}} className={styles.recipeCardContents}>
 
-                                <div style={{display: 'flex'}}>
-                                        <label htmlFor="quantity" className={styles.labels} style={{width: '32%', marginRight: '3%', borderRadius: '3px'}}>Quantity</label>
-                                        <label htmlFor="ingredient" className={styles.labels} style={{width: '72%', display: 'block'}}>Ingredient</label>
+                                <div style={{display: 'flex', padding:'0% 2%'}}>
+                                        <label htmlFor="quantity" className={styles.labels} style={{width: '30%', borderRadius: '3px'}}>Quantity</label>
+                                        <label htmlFor="ingredient" className={styles.labels} style={{width: '70%', display: 'block'}}>Ingredient</label>
                                 </div>
 
                                 <div className={styles.ingredientsView}>{this.generateIngredientsView()}</div>
@@ -115,7 +115,7 @@ class RecipeForm extends Component{
 
                             <div className={styles.recipeCardContents} style={{display: 'block'}}>
                                 <label className={styles.labels}>Assign to a Day</label>
-                                <select style={{width: '100%'}} defaultValue={'none'}>
+                                <select className={styles.daySelect} defaultValue={'none'}>
                                     <option value={'none'}>No day selected</option>
 
                                 </select>
