@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const config = require('../webpack.config');
-const port = process.env.PORT || config.devServer.port;
+const port = process.env.PORT || 3000;
 const RecipeController = require('./api/controllers/RecipeController');
 
 app.use(express.static(path.join(__dirname, 'build')));
