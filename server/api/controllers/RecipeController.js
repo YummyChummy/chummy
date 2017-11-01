@@ -1,10 +1,12 @@
 const RecipeService = require('../services/RecipeService');
 
 
-function fetchAllRecipes(response) {
-    RecipeService.fetchAllRecipes((recipes) => response.json(recipes));
+function fetchRecipes(name) {
+    return new Promise(function (resolve, reject) {
+        resolve(RecipeService.fetchRecipes(name))
+    })
 }
 
 module.exports = {
-    fetchAllRecipes: fetchAllRecipes
+    fetchRecipes: fetchRecipes
 };

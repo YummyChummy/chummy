@@ -1,15 +1,18 @@
 const db =  require("../databases/PostgresInit");
 
-function fetchAllRecipes(callback) {
-    db.any('select * from Recipes;')
-        .then(function (recipeData) {
-            return callback(recipeData);
-        })
-        .catch(function (err) {
-            return callback(err);
-        });
+function fetchRecipes() {
+
+    return new Promise(function (resolve, reject) {
+        db.any('select * from Recipes;')
+            .then(function (recipeData) {
+                return resolve(recipeData);
+            })
+            .catch(function (err) {
+                return reject(err);
+            });
+    })
 }
 
 module.exports = {
-    fetchAllRecipes: fetchAllRecipes
+    fetchRecipes: fetchRecipes
 };

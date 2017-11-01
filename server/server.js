@@ -3,12 +3,20 @@ const path = require('path');
 const app = express();
 const config = require('../webpack.config');
 const port = process.env.PORT || config.devServer.port;
-const recipeController = require('./api/controllers/RecipeController');
+const RecipeController = require('./api/controllers/RecipeController');
 
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/api/recipes', (req, res) => {
-    recipeController.fetchAllRecipes(res)
+
+    RecipeController.fetchRecipes()
+        .then(function (response) {
+            res.json(response);
+        })
+        .catch(function (error) {
+            console.log("Error: " + error)
+            res.json({status: "404", message: "Could not process query"});
+        })
 });
 
 app.get(/\/(?!api\/)/, (req, res) => {
