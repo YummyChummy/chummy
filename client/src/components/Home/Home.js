@@ -10,12 +10,15 @@ import styles from './Home.scss'
 class Home extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            recipes: 'none'
+        }
     }
 
     componentDidMount() {
         console.log("Mounted!")
         axios.get("/api/recipes")
-            .then( (response) => console.log(response.data))
+            .then( (response) => this.setState(() => {return {recipes: response.data}}))
             .catch( (err) => console.log(err))
     }
 
@@ -33,6 +36,9 @@ class Home extends React.Component {
                             grocery list.
                         </h2>
                     </div>
+                    <p>
+                        {JSON.stringify(this.state.recipes)}
+                    </p>
                     <RecipeCreator />
                     <div className={styles.daysContainer}>
                         <Day header="Monday" isHidden={this.props.recipeFormVisible}/>
