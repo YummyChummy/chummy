@@ -3,30 +3,29 @@ const path = require('path');
 const app = express();
 const config = require('../webpack.config');
 const port = process.env.PORT || config.devServer.port;
-// const RecipeController = require('./api/controllers/RecipeController');
-const Recipes = require('./api/Sequelize/Models').Recipes
+const Recipes = require('./api/models/Recipes').Recipes
 
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/api/recipes', (req, res) => {
-
     Recipes.findAll().then(recipes => {
         res.json(recipes)
     })
-
-    // RecipeController.fetchRecipes()
-    //     .then(function (response) {
-    //         res.json(response);
-    //     })
-    //     .catch(function (error) {
-    //         console.log("Error: " + error)
-    //         res.json({status: "404", message: "Could not process query"});
-    //     })
 });
 
 app.post ('/api/recipes', (req, res) => {
     res.json({"succesful": "yes"})
-    console.log('Receiving request to add a new recipe, name: ',req.query.name, 'ingredients: ', req.query.ingredients[0])
+
+    var name = req.query.name
+    var ingredients = JSON.parse(req.query.ingredients)
+
+    Recipes.sync().then(Recipes.create({
+        name: name,
+        ingredients: ingredients
+    })).then((res) => console.log(res))
+
+    console.log(`name: ${name}\tingredients:`)
+    console.log(ingredients)
 });
 
 app.get(/\/(?!api\/)/, (req, res) => {

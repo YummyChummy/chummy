@@ -17,7 +17,10 @@ class RecipeForm extends Component{
 
     submit = (clickEvent) => {
         //persist data/send to postgres (eventually)
-        axios.post(`/api/recipes?name=${this.state.name}&ingredients=${this.state.ingredients}`)
+        const ingredients = this.state.ingredients;
+        var filteredIngredients = ingredients.filter(value => Object.keys(value).length !== 0);
+
+        axios.post(`/api/recipes?name=${this.state.name}&ingredients=${JSON.stringify(filteredIngredients)}`)
             .then((result) => {
                 //access the results here....
                 console.log("Sucessfully inserted Recipe: ", result)

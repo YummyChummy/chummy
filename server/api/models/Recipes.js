@@ -1,4 +1,4 @@
-const sequelize = require('./SequelizeInit')
+const sequelize = require('../databases/SequelizeInit')
 const Sequelize = require('sequelize')
 
 const Recipes = sequelize.define('Recipes', {
