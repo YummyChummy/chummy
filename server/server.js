@@ -4,10 +4,16 @@ const app = express();
 const config = require('../webpack.config');
 const port = process.env.PORT || config.devServer.port;
 const RecipeController = require('./api/controllers/RecipeController');
+// const Recipes = require('./api/Sequelize/Models').Recipes
 
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/api/recipes', (req, res) => {
+
+    // Recipes.findAll().then(recipes => {
+    //     console.log(recipes)
+    //     res.json(recipes)
+    // })
 
     RecipeController.fetchRecipes()
         .then(function (response) {
