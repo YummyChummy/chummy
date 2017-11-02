@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import * as chummyActionCreators from "../../redux/modules/chummy"
 import styles from './RecipeCreator.scss'
+import axios from 'axios'
 
 class RecipeForm extends Component{
 
@@ -16,13 +17,21 @@ class RecipeForm extends Component{
 
     submit = (clickEvent) => {
         //persist data/send to postgres (eventually)
-        //echo it out
+        axios.post(`/api/recipes?name=${this.state.name}&ingredients=${this.state.ingredients}`)
+            .then((result) => {
+                //access the results here....
+                console.log("Sucessfully inserted Recipe: ", result)
+            })
+            .catch((error) =>{ console.log(error)});
+
         //clear by setState to empty
         this.setState(() => ({
             name: '',
             ingredients: [{},{},{}]
 
         }));
+
+        //clear it out
         clickEvent.preventDefault();
         document.getElementById('recipe-form').reset();
         this.props.handleClose()

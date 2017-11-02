@@ -8,11 +8,10 @@
   },
   "scripts": {
     "devServer": "NODE_ENV=development node server/server.js",
-    "prodServer": "NODE_ENV=production node server/server.js",
     "start": "webpack-dev-server -d --progress",
     "build": "webpack -p --progress",
-    "dev": "npm run devServer & npm run start",
-    "prod": "npm run build && npm run prodServer",
+    "serve": "npm run devServer & npm run start",
+    "buildAndServe": "webpack -d --progress && npm run devServer",
     "postinstall": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
