@@ -20,7 +20,7 @@ class RecipeForm extends Component{
         const ingredients = this.state.ingredients;
         var filteredIngredients = ingredients.filter(value => Object.keys(value).length !== 0);
 
-        axios.post(`/api/recipes?name=${this.state.name}&ingredients=${JSON.stringify(filteredIngredients)}`)
+        axios.post(`/api/recipes?name=${this.state.name}`)
             .then((result) => {
                 //access the results here....
                 console.log("Sucessfully inserted Recipe: ", result)

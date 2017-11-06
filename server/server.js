@@ -17,15 +17,12 @@ app.post ('/api/recipes', (req, res) => {
     res.json({"succesful": "yes"})
 
     var name = req.query.name
-    var ingredients = JSON.parse(req.query.ingredients)
 
     Recipes.sync().then(Recipes.create({
         name: name,
-        ingredients: ingredients
     })).then((res) => console.log(res))
 
     console.log(`name: ${name}\tingredients:`)
-    console.log(ingredients)
 });
 
 app.get(/\/(?!api\/)/, (req, res) => {
