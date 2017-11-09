@@ -3,11 +3,14 @@ const path = require('path');
 const app = express();
 const config = require('../webpack.config');
 const port = process.env.PORT || config.devServer.port;
+const recipes = require("./api/models").Recipes;
 
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/api/recipes', (req, res) => {
-
+    recipes
+        .findAll({ attributes:['rid', 'name', 'ingredients'] })
+        .then((response) => res.json(response))
 });
 
 app.post ('/api/recipes', (req, res) => {

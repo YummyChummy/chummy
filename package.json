@@ -8,12 +8,16 @@
   },
   "scripts": {
     "migrate": "sequelize db:migrate",
+    "migrateAndSeed": "sequelize db:migrate && sequelize db:seed:all",
+    "dbClean": "sequelize db:seed:undo:all",
     "devServer": "NODE_ENV=development node server/server.js",
-    "start": "webpack-dev-server -d --progress",
-    "build": "webpack -p --progress",
-    "serve": "npm run devServer & npm run start",
-    "buildAndServe": "webpack -d --progress && npm run devServer",
+    "webDevServer": "webpack-dev-server -d --progress",
+    "build": "npm run migrate && webpack -p --progress",
+    "serve": "npm run migrateAndSeed && npm run devServer & npm run webDevServer",
+    "start": "npm run migrateAndSeed && webpack -d --progress && npm run devServer",
     "postinstall": "npm run build",
+    "poststart": "npm run dbClean",
+    "postserve": "npm run dbClean",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "babel": {
