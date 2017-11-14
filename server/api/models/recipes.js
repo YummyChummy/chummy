@@ -1,8 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var Recipes = sequelize.define('Recipes', {
-      name: DataTypes.STRING,
-      ingredients: DataTypes.JSON
+      name: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
