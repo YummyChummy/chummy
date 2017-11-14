@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/api/recipes', (req, res) => {
     recipes
-        .findAll({ attributes:['rid', 'name', 'ingredients'] })
+        .findAll({ attributes:['rid', 'name'] })
         .then((response) => res.json(response))
 });
 
