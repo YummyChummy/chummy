@@ -4,16 +4,35 @@ const app = express();
 const config = require('../webpack.config');
 const port = process.env.PORT || config.devServer.port;
 const recipes = require("./api/models").Recipes;
+const ingredients = require("./api/models").Ingredients;
+
 
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/api/recipes', (req, res) => {
     recipes
-        .findAll({ attributes:['rid', 'name'] })
+        .findAll()
         .then((response) => res.json(response))
 });
 
 app.post ('/api/recipes', (req, res) => {
+
+    // recipes.addIngredient(ingredient, { through: { quantity: 2 }})
+    // ingredient.addRecipes(recipe, { through: { quantity: 2 }})
+
+    //recipe := Recipe.create()
+    //for ingredient in ingredientsList
+    //   ingredient <- Ingredient.create()
+    //   recipesIngredient <- RecipesIngredient.create({quantity: 2})
+    //   recipe.addIngredient(recipesIngredient)
+    //   ingredient.addRecipe(recipesIngredient)
+
+    //recipe := Recipe.create()
+    //for ingredient in ingredientsList
+    //   ingredient <- Ingredient.create()
+    //   recipes.addIngredient(ingredient, { through: { quantity: 2 }})
+    //   ingredient.addRecipes(recipe, { through: { quantity: 2 }})
+
     res.json({"succesful": "yes"})
 
 });

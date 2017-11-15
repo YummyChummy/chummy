@@ -8,6 +8,9 @@ module.exports = {
       dialect: "postgres",
       port: 5432,
       ssl: true,
+      define:{
+          timestamps: false
+      },
       dialectOptions: {
           ssl: true
       }
@@ -20,6 +23,9 @@ module.exports = {
       dialect: "postgres",
       port: 5432,
       ssl: true,
+      define:{
+          timestamps: false,
+      },
       dialectOptions: {
         ssl: true
       }

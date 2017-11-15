@@ -7,8 +7,10 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
+          Recipes.belongsToMany(models.Ingredients, {through: models.RecipeIngredients, foreignKey: "rid"})
       }
     }
-  });
+  },{timestamps: false});
+  Recipes.removeAttribute('id')
   return Recipes;
 };
