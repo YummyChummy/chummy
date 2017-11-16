@@ -3,8 +3,8 @@ const path = require('path');
 const app = express();
 const config = require('../webpack.config');
 const port = process.env.PORT || config.devServer.port;
-const recipes = require("./api/models").Recipes;
-const ingredients = require("./api/models").Ingredients;
+const recipes = require("./api/models/index")['Recipes'];
+const ingredients = require("./api/models/index")['Ingredients'];
 
 
 app.use(express.static(path.join(__dirname, 'build')));
@@ -17,8 +17,7 @@ app.get('/api/recipes', (req, res) => {
 
 app.post ('/api/recipes', (req, res) => {
 
-    // recipes.addIngredient(ingredient, { through: { quantity: 2 }})
-    // ingredient.addRecipes(recipe, { through: { quantity: 2 }})
+    recipes.create()
 
     //recipe := Recipe.create()
     //for ingredient in ingredientsList
