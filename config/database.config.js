@@ -9,7 +9,8 @@ module.exports = {
       port: 5432,
       ssl: true,
       define:{
-          timestamps: false
+          timestamps: false,
+          freezeTableName: true
       },
       dialectOptions: {
           ssl: true
@@ -25,6 +26,7 @@ module.exports = {
       ssl: true,
       define:{
           timestamps: false,
+          freezeTableName: true
       },
       dialectOptions: {
         ssl: true
