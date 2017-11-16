@@ -1,10 +1,8 @@
 'use strict';
 
-const Ingredients = require("./ingredients");
-
 module.exports = (sequelize, DataTypes) => {
 
-  var Recipes = sequelize.define('Recipes', {
+  var Recipe = sequelize.define('Recipe', {
       rid: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -13,11 +11,11 @@ module.exports = (sequelize, DataTypes) => {
       name: DataTypes.STRING
   });
 
-  Recipes.associate = function(models) {
+  Recipe.associate = function(models) {
       // associations can be defined here
-      Recipes.hasMany(models.Ingredients)
+      Recipe.hasMany(models.Ingredient)
   };
 
-  Recipes.removeAttribute('id');
-  return Recipes;
+  Recipe.removeAttribute('id');
+  return Recipe;
 };
