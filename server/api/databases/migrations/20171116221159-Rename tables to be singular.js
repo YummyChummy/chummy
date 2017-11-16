@@ -6,7 +6,11 @@ module.exports = {
       var renameIngredients = queryInterface.renameTable("Ingredients", "Ingredient");
       var renameRecipeIngredients =  queryInterface.renameTable("RecipeIngredients", "RecipeIngredient");
 
-      Promise.all([renameRecipes, renameIngredients, renameRecipeIngredients]);
+      return renameRecipes.then(function () {
+          return renameIngredients.then(function () {
+              return renameRecipeIngredients
+          })
+      });
   },
 
   down: (queryInterface, Sequelize) => {
@@ -14,6 +18,10 @@ module.exports = {
       var renameIngredient = queryInterface.renameTable("Ingredient", "Ingredients");
       var renameRecipeIngredient =  queryInterface.renameTable("RecipeIngredient", "RecipeIngredients");
 
-      Promise.all([renameRecipe, renameIngredient, renameRecipeIngredient]);
+      return renameRecipe.then(function () {
+          return renameIngredient.then(function () {
+              return renameRecipeIngredient
+          })
+      });
   }
 };
