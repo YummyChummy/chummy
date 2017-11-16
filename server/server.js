@@ -3,21 +3,29 @@ const path = require('path');
 const app = express();
 const config = require('../webpack.config');
 const port = process.env.PORT || config.devServer.port;
-const recipes = require("./api/models/index")['Recipes'];
-const ingredients = require("./api/models/index")['Ingredients'];
-
+const Recipes = require("./api/models/index")['Recipes'];
+const Ingredients = require("./api/models/index")['Ingredients'];
 
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/api/recipes', (req, res) => {
-    recipes
+    Recipes
         .findAll()
         .then((response) => res.json(response))
 });
 
 app.post ('/api/recipes', (req, res) => {
 
-    recipes.create()
+    Recipes.create(
+    {
+        name: "BBQ Ribs",
+        ingredients: [
+            { name: "Pork Ribs" }
+        ]
+    },
+    {
+        include: [ Ingredients ]
+    });
 
     //recipe := Recipe.create()
     //for ingredient in ingredientsList

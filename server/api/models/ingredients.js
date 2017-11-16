@@ -1,17 +1,18 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Ingredients = sequelize.define('Ingredients', {
-    iid: DataTypes.INTEGER,
-    name: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-          Ingredients.belongsToMany(models.Recipes, {through: models.RecipeIngredients, foreignKey: "iid"})
+    var Ingredients = sequelize.define('Ingredients', {
+      iid: {
+          type: DataTypes.INTEGER,
+          primaryKey: true,
+          autoIncrement: true
+      },
+      name: DataTypes.STRING
+    });
 
-      }
-    }
-  }, {timestamps: false});
-    Ingredients.removeAttribute('id')
+    Ingredients.associate = function (models) {
+        Ingredients.belongsToMany(models.Recipes, { through: { model: models.RecipeIngredients }, foreignKey: "iid" });
+    };
+
+    Ingredients.removeAttribute('id');
     return Ingredients;
 };
